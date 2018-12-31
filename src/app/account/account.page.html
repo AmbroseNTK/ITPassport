@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="secondary">
+      <ion-button (click)="signOut()" [routerLink]="'/'">
+        <ion-icon name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="contact" slot="start"></ion-icon>
+      <ion-label>Your information</ion-label>
+      <ion-button fill="outline" slot="end" (click)="openEditProfile()">Edit</ion-button>
+    </ion-item>
+    <ion-card-content>
+      <ion-text>Email: {{email}}</ion-text><br />
+      <ion-text>Name: {{displayName}}</ion-text><br />
+      <ion-text>Phone: {{phone}}</ion-text><br />
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="cash" slot="start"></ion-icon>
+      <ion-label>Your credit(s)</ion-label>
+
+    </ion-item>
+    <ion-card-content>
+      <ion-text>You have xxx credit(s)</ion-text><br />
+      <ion-button color="warning">Watch video reward</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

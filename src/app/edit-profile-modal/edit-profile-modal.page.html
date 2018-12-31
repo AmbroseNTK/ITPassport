@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit your profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      Personal information
+    </ion-item>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">
+          Full name
+        </ion-label>
+        <ion-textarea [(ngModel)]="name"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          Phone number
+        </ion-label>
+        <ion-textarea [(ngModel)]="phone"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button color="primary">Send SMS Verification</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-textarea [(ngModel)]="verifyCode" placeholder="Verification code"></ion-textarea>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-button color="primary" style="margin-top:10px; width: 100%;" (click)="saveAndExit()">Save and Close</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

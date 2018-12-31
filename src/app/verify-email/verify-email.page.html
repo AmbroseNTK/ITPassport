@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Email Verifying...</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-item>
+      <ion-label text-wrap>We have sent verification email</ion-label>
+      <ion-button fill="outline" slot="end" (click)="reSend()">Resend</ion-button>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-item>
+        <div text-wrap>
+          <h3>Please check mail and
+            <a color="primary" [routerLink]="'/'">re-login</a> to continue
+          </h3>
+        </div>
+
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

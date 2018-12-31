@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Create new account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="git-merge"></ion-icon>
+      <ion-label>Join with us</ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="mail"></ion-icon>
+          Email
+        </ion-label>
+        <ion-textarea [(ngModel)]="email"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="lock"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="lock"></ion-icon>
+          Retype Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="retypePassword"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-checkbox color="primary" style="margin-right:10px;" [(ngModel)]="checkTerms"></ion-checkbox>
+        <ion-label text-wrap>
+          <i> I have read and accept the terms and conditions</i>
+        </ion-label>
+
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-button color="primary" style="margin-top:10px; width: 100%;" (click)="create()">Create</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

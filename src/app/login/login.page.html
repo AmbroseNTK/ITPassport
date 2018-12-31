@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Welcome to IT Passport</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-card style="background: #fff">
+    <ion-item>
+      <object type="image/svg+xml" data="../../assets/logo.svg" style="margin:10px;"></object>
+      <ion-label>Login</ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="mail"></ion-icon>
+          Email
+        </ion-label>
+        <ion-textarea [(ngModel)]="email"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          <ion-icon name="lock"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-button color="primary" style="margin-top:10px; width: 100%;" (click)="login()">Login</ion-button>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div>
+              <ion-button color="primary" style="margin-top:10px; width: 100%;" [routerLink]="'/sign-up'">Sign
+                Up</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div>
+              <ion-button color="light" style="margin-top:10px; width: 100%;" (click)="forgotPassword()">
+                I forgot my password
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
