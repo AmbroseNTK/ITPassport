@@ -1,5 +1,7 @@
 {
   "name": "itpassport",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

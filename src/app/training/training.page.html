@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Training</ion-title>
-    <ion-button *ngIf="allowStart" slot="secondary" color="light">Start</ion-button>
+    <ion-button *ngIf="allowStart" slot="end" color="light" (click)="prepareStart()">Start</ion-button>
   </ion-toolbar>
   <ion-progress-bar [value]="loadingPercent"></ion-progress-bar>
 </ion-header>
@@ -21,10 +21,10 @@
     <ion-card-content>
       <ion-item>
         <ion-list>
-          <ng-container *ngFor="let minorCat of minorCatList[i] | async">
+          <ng-container *ngFor="let minorCat of minorCatList[i] | async; let j = index">
             <ion-item *ngIf="minorCat.title !== undefined">
               <ion-label>{{minorCat.title}}</ion-label>
-              <ion-checkbox slot="start" style="margin-right:10px;"></ion-checkbox>
+              <ion-checkbox slot="start" style="margin-right:10px;" [(ngModel)]="this.catTree[i][j]" (ionChange)="onSelected()"></ion-checkbox>
             </ion-item>
           </ng-container>
         </ion-list>

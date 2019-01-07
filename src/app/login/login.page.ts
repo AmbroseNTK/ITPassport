@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,7 @@ export class LoginPage implements OnInit {
   constructor(private afAuth: AngularFireAuth, private router: Router, private toastController: ToastController) { }
 
   ngOnInit() {
+
   }
 
   async presentToast(message) {

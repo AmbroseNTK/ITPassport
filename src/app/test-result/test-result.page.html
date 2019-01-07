@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title style="font-size: 20pt;">Result: {{percent}} %</ion-title>
+
+    <ion-button slot="end" fill="outline" color="light" (click)="goBack()">
+      <ion-icon name="arrow-round-back"></ion-icon>
+      Back
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="primary">
+  <ion-list>
+    <ion-item *ngFor="let result of resultList; let i = index">
+
+      <ion-item slot="start" lines="none" style="max-width: 50px; min-width: 50px;">
+        <ion-img src="/assets/correct.svg" *ngIf="result.correct"></ion-img>
+        <ion-img src="/assets/wrong.svg" *ngIf="!result.correct"></ion-img>
+      </ion-item>
+
+      <ion-card-title slot="start">#{{i+1}}</ion-card-title>
+      <ion-card-subtitle slot="start">{{result.question['Title']}}</ion-card-subtitle>
+
+
+    </ion-item>
+  </ion-list>
+</ion-content>

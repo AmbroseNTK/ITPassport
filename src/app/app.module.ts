@@ -16,19 +16,34 @@ import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 
 import { environment } from '../environments/environment';
 import { EditProfileModalPageModule } from './edit-profile-modal/edit-profile-modal.module';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({ hardwareBackButton: false, swipeBackEnabled: false }),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'Firebase'),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
-    EditProfileModalPageModule
+    EditProfileModalPageModule,
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          tables: true,
+          breaks: false,
+          pedantic: true,
+          sanitize: true,
+          smartLists: true,
+          smartypants: true,
+        },
+      },
+    })
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Before Start</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding color="primary">
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>Are you ready?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-icon name="clock" style="margin-right:10px;"></ion-icon>
+        <ion-label>Time: Infinity</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-icon name="card" style="margin-right:10px;"></ion-icon>
+        <ion-label>Quiz size: 10</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-button fill="outline" shape="round" style="width: 100%" [routerLink]="'/main'">
+                Back
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button fill="outline" shape="round" style="width: 100%" (click)="start()">
+                Start
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Question {{currentIndex+1}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="flag"></ion-icon>
+        <ion-label>Feedback</ion-label>
+      </ion-button>
+      <ion-button (click)="submit()">
+        <ion-icon name="done-all"></ion-icon>
+        <ion-label>Submit</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar slot="secondary">
+    <ion-card-subtitle style="margin-left:10px;">{{questionList[currentIndex]['Title']}}</ion-card-subtitle>
+  </ion-toolbar>
+  <ion-progress-bar [value]="(currentIndex+1)/numOfQuestion"></ion-progress-bar>
+</ion-header>
+
+<ion-content padding>
+  <ion-slides pager="true" *ngIf="questionList" [options]="slideOpts" (ionSlideDidChange)="slideChanged()">
+    <ion-slide *ngFor="let question of questionList; let i = index">
+      <ion-item>
+        <markdown [data]="question['Question']"></markdown>
+      </ion-item>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+
+<ion-footer>
+
+  <ion-list>
+    <ion-radio-group (ionChange)="selectAnswer(currentIndex,$event.detail.value)">
+      <ion-item lines="full">
+        <ion-item slot="start" lines="none" style="max-width: 90%;">
+          <ion-label>{{questionList[currentIndex]['A']}}</ion-label>
+          <ion-radio slot="start" value="A" [checked]="answers[currentIndex]==='A'"></ion-radio>
+        </ion-item>
+
+      </ion-item>
+      <ion-item lines="full">
+        <ion-item slot="start" lines="none" style="max-width: 90%;">
+          <ion-label>{{questionList[currentIndex]['B']}}</ion-label>
+          <ion-radio slot="start" value="B" [checked]="answers[currentIndex]==='B'"></ion-radio>
+        </ion-item>
+
+      </ion-item>
+      <ion-item lines="full">
+        <ion-item slot="start" lines="none" style="max-width: 90%;">
+          <ion-label>{{questionList[currentIndex]['C']}}</ion-label>
+          <ion-radio slot="start" value="C" [checked]="answers[currentIndex]==='C'"></ion-radio>
+        </ion-item>
+
+      </ion-item>
+      <ion-item lines="full">
+        <ion-item slot="start" lines="none" style="max-width: 90%;">
+          <ion-label>{{questionList[currentIndex]['D']}}</ion-label>
+          <ion-radio slot="start" value="D" [checked]="answers[currentIndex]==='D'"></ion-radio>
+        </ion-item>
+
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-footer>
