@@ -23,7 +23,6 @@ export class AccountPage implements OnInit {
     this.email = this.afAuth.auth.currentUser.email;
     this.displayName = this.afAuth.auth.currentUser.displayName;
     this.phone = this.afAuth.auth.currentUser.phoneNumber;
-    this.loadConfig();
   }
 
   async openEditProfile() {
@@ -36,18 +35,6 @@ export class AccountPage implements OnInit {
     console.log("sign out");
     this.afAuth.auth.signOut();
 
-  }
-
-  loadConfig() {
-    this.db.list('config/').snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, value: c.payload.val() }))
-      )
-    ).subscribe((snapshot) => {
-      console.log(snapshot);
-      this.dataService.config = snapshot;
-
-    });
   }
 
 }

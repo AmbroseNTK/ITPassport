@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ToastController, Platform } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { map } from 'rxjs/operators';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ export class LoginPage implements OnInit {
   email;
   password;
 
-  constructor(private afAuth: AngularFireAuth, private router: Router, private toastController: ToastController) { }
+  constructor(private afAuth: AngularFireAuth, private router: Router, private toastController: ToastController, private db: AngularFireDatabase, private dataService: DataService) { }
 
   ngOnInit() {
 
@@ -35,6 +37,8 @@ export class LoginPage implements OnInit {
       this.presentToast("Login successfully");
       if (!this.afAuth.auth.currentUser.emailVerified) {
         this.router.navigate(['/verify-email']);
+        this.loadConfig();
+        this.db.list('users/').set(this.email.toLowerCase().replace('.', '&'), { credits: this.dataService.getConfig('default_point') });
       }
       else {
         this.router.navigate(['/main/account']);
@@ -50,6 +54,18 @@ export class LoginPage implements OnInit {
 
   forgotPassword() {
     this.afAuth.auth.sendPasswordResetEmail(this.email);
+  }
+
+  loadConfig() {
+    this.db.list('config/').snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, value: c.payload.val() }))
+      )
+    ).subscribe((snapshot) => {
+      console.log(snapshot);
+      this.dataService.config = snapshot;
+
+    });
   }
 
 }

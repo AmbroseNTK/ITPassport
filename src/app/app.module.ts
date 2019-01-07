@@ -18,6 +18,9 @@ import { environment } from '../environments/environment';
 import { EditProfileModalPageModule } from './edit-profile-modal/edit-profile-modal.module';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from '../app/states/reducers/user.reducer';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -30,6 +33,9 @@ import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     EditProfileModalPageModule,
+    StoreModule.forRoot({
+      user: userReducer
+    }),
     MarkdownModule.forRoot({
       markedOptions: {
         provide: MarkedOptions,
