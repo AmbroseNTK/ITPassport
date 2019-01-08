@@ -1,4 +1,6 @@
 export interface User {
     currentUser: any;
-    error: any;
+    error: boolean;
+    signing: boolean;
+    registration: { hasError: boolean, message: string };
 }

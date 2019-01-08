@@ -19,7 +19,10 @@ import { EditProfileModalPageModule } from './edit-profile-modal/edit-profile-mo
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { userReducer } from '../app/states/reducers/user.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { UserEffects } from './states/effects/user.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,6 +39,8 @@ import { userReducer } from '../app/states/reducers/user.reducer';
     StoreModule.forRoot({
       user: userReducer
     }),
+    StoreDevtoolsModule.instrument({ maxAge: 10 }),
+    EffectsModule.forRoot([UserEffects]),
     MarkdownModule.forRoot({
       markedOptions: {
         provide: MarkedOptions,

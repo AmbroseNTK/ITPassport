@@ -1,27 +1,104 @@
+
 import { Action } from '@ngrx/store';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 export const LOGIN = '[User] Login';
+export const LOGIN_SUCCESS = '[User] Login -> Success';
+export const LOGIN_FAILED = '[User] Login -> Failed';
 export const SIGNIN = '[User] SignIn';
+export const SIGNIN_SUCCESS = '[User] SignIn -> Success';
+export const SIGNIN_FAILED = '[User] SignIn -> Failed';
 export const SIGNOUT = '[User] SignOut';
-export const UPDATEINFO = '[User] UpdateInfo'
+export const UPDATEINFO = '[User] UpdateInfo';
+export const GETINFO = '[User] GetInfo';
+export const EDITINFO = '[User] EditInfo';
+export const EDITINFO_SUCCESS = '[User] EditInfo -> Success';
+export const EDITINFO_FAILED = '[User] EditInfo -> Failed';
+export const FORGOT_PASSWORD = '[User] Forgot password';
+export const FORGOT_PASSWORD_SENT_SUCCESS = '[User] Forgot password -> Sent Success';
+export const FORGOT_PASSWORD_SENT_FAILED = '[User] Forgot password -> Sent Failed';
 
 export class Login implements Action {
     readonly type = LOGIN;
-    constructor(public payload: { afAuth: AngularFireAuth, email: string, password: string }) { }
+    constructor(public payload: { email: string, password: string }) { }
+}
+
+export class LoginSuccess implements Action {
+    readonly type = LOGIN_SUCCESS;
+    constructor(public payload: { currentUser: any }) { }
+}
+
+export class LoginFailed implements Action {
+    readonly type = LOGIN_FAILED;
+    constructor(public payload: { message: string }) { }
 }
 
 export class SignIn implements Action {
     readonly type = SIGNIN;
-    constructor(public payload: { email: string, password: string, retypePassword: string, agreeTearm: boolean }) { }
+    constructor(public payload: { email: string, password: string, retypePassword: string, agreeTerm: boolean }) { }
+}
+
+export class SignInSuccess implements Action {
+    readonly type = SIGNIN_SUCCESS;
+    constructor() { }
+}
+
+export class SignInFailed implements Action {
+    readonly type = SIGNIN_FAILED;
+    constructor(public payload: { message: string }) { }
 }
 
 export class UpdateInfo implements Action {
     readonly type = UPDATEINFO;
-    constructor(public payload: { email: string, name: string, address: string, phone: string }) { }
+    constructor(public payload: { name: string, address: string, phone: string }) { }
+}
+
+export class GetInfo implements Action {
+    readonly type = GETINFO;
+    constructor() { }
+}
+
+export class EditInfo implements Action {
+    readonly type = EDITINFO;
+    constructor(public payload: { newName: string, newPhone: string }) { }
+}
+
+export class EditInfoSuccess implements Action {
+    readonly type = EDITINFO_SUCCESS;
+    constructor() { }
+}
+
+export class EditInfoFailed implements Action {
+    readonly type = EDITINFO_FAILED;
+    constructor() { }
+}
+
+export class ForgotPassword implements Action {
+    readonly type = FORGOT_PASSWORD;
+    constructor(public payload: { email: string }) { }
+}
+
+export class ForgotPasswordSentSuccess implements Action {
+    readonly type = FORGOT_PASSWORD_SENT_SUCCESS;
+    constructor() { }
+}
+
+export class ForgotPasswordSentFailed implements Action {
+    readonly type = FORGOT_PASSWORD_SENT_FAILED;
+    constructor() { }
 }
 
 export type All
     = Login
+    | LoginSuccess
+    | LoginFailed
     | UpdateInfo
-    | SignIn;
+    | GetInfo
+    | EditInfo
+    | EditInfoSuccess
+    | EditInfoFailed
+    | SignIn
+    | SignInSuccess
+    | SignInFailed
+    | ForgotPassword
+    | ForgotPasswordSentSuccess
+    | ForgotPasswordSentFailed;

@@ -17,10 +17,10 @@
       <ion-label>Your information</ion-label>
       <ion-button fill="outline" slot="end" (click)="openEditProfile()">Edit</ion-button>
     </ion-item>
-    <ion-card-content>
-      <ion-text>Email: {{email}}</ion-text><br />
-      <ion-text>Name: {{displayName}}</ion-text><br />
-      <ion-text>Phone: {{phone}}</ion-text><br />
+    <ion-card-content *ngIf="user| async as u">
+      <ion-text>Email: {{u.currentUser.email}}</ion-text><br />
+      <ion-text>Name: {{u.currentUser.displayName}}</ion-text><br />
+      <ion-text>Phone: {{u.currentUser.phoneNumber}}</ion-text><br />
     </ion-card-content>
   </ion-card>
   <ion-card>

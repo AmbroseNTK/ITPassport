@@ -5,6 +5,11 @@ import { EditProfileModalPage } from '../edit-profile-modal/edit-profile-modal.p
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DataService } from '../data.service';
 import { map } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import IAppState from '../IAppState';
+import { Observable } from 'rxjs';
+import { User } from '../states/models/user.model';
+import * as UserAction from '../states/actions/user.actions';
 
 @Component({
   selector: 'app-account',
@@ -13,16 +18,21 @@ import { map } from 'rxjs/operators';
 })
 export class AccountPage implements OnInit {
 
-  constructor(private afAuth: AngularFireAuth, private modalController: ModalController, private db: AngularFireDatabase, private dataService: DataService) { }
+  constructor(private afAuth: AngularFireAuth,
+    private modalController: ModalController,
+    private db: AngularFireDatabase,
+    private dataService: DataService, private store: Store<IAppState>) {
+    this.user = this.store.select('user');
+    this.store.dispatch(new UserAction.GetInfo());
+  }
 
   email;
   displayName;
   phone;
 
+  user: Observable<User>;
+
   ngOnInit() {
-    this.email = this.afAuth.auth.currentUser.email;
-    this.displayName = this.afAuth.auth.currentUser.displayName;
-    this.phone = this.afAuth.auth.currentUser.phoneNumber;
   }
 
   async openEditProfile() {
