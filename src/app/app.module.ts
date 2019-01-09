@@ -23,6 +23,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { userReducer } from '../app/states/reducers/user.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './states/effects/user.effects';
+import { configReducer } from './states/reducers/config.reducer';
+import { ConfigEffects } from './states/effects/config.effect';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,10 +39,11 @@ import { UserEffects } from './states/effects/user.effects';
     AngularFireStorageModule,
     EditProfileModalPageModule,
     StoreModule.forRoot({
-      user: userReducer
+      user: userReducer,
+      config: configReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 10 }),
-    EffectsModule.forRoot([UserEffects]),
+    EffectsModule.forRoot([UserEffects, ConfigEffects]),
     MarkdownModule.forRoot({
       markedOptions: {
         provide: MarkedOptions,

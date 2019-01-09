@@ -11,6 +11,7 @@ import { Store } from '@ngrx/store';
 import * as UserAction from '../states/actions/user.actions';
 import IAppState from '../IAppState';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -23,10 +24,9 @@ export class LoginPage implements OnInit {
 
   user: Observable<User>
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(
     private router: Router,
     private toastController: ToastController,
-    private db: AngularFireDatabase,
     private dataService: DataService,
     private store: Store<IAppState>) {
     this.user = store.select('user');
@@ -51,7 +51,7 @@ export class LoginPage implements OnInit {
     this.user.subscribe((value) => {
       if (!value.error) {
         this.router.navigate(['/main/account']);
-        this.loadConfig();
+        this.dataService.fetchConfig();
       }
       else {
         this.presentToast('Email or password is invalid');
@@ -59,24 +59,8 @@ export class LoginPage implements OnInit {
     })
   }
 
-  signUp() {
-
-  }
-
   forgotPassword() {
     this.store.dispatch(new UserAction.ForgotPassword({ email: this.email }));
-  }
-
-  loadConfig() {
-    this.db.list('config/').snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, value: c.payload.val() }))
-      )
-    ).subscribe((snapshot) => {
-      console.log(snapshot);
-      this.dataService.config = snapshot;
-
-    });
   }
 
 }
