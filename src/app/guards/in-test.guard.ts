@@ -3,6 +3,9 @@ import { CanDeactivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } f
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
 
+/**
+ * Protect the router: User cannot leave test room until they finish the test
+ */
 @Injectable({
   providedIn: 'root'
 })

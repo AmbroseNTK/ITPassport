@@ -3,6 +3,9 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angul
 import { Observable } from 'rxjs';
 import { DataService } from '../data.service';
 
+/**
+ * Protect the router: Allow navigate to Before Start if not be in test
+ */
 @Injectable({
   providedIn: 'root'
 })
