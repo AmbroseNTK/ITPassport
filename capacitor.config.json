@@ -1,0 +1,6 @@
+{
+  "appId": "vn.edu.itsstraining.itpassport",
+  "appName": "ITPassport",
+  "bundledWebRuntime": false,
+  "webDir": "www"
+}

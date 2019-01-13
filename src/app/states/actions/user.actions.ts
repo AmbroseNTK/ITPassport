@@ -5,17 +5,19 @@ export const LOGIN = '[User] Login';
 export const LOGIN_SUCCESS = '[User] Login -> Success';
 export const LOGIN_FAILED = '[User] Login -> Failed';
 export const SIGNIN = '[User] SignIn';
-export const SIGNIN_SUCCESS = '[User] SignIn -> Success';
-export const SIGNIN_FAILED = '[User] SignIn -> Failed';
-export const SIGNOUT = '[User] SignOut';
-export const UPDATEINFO = '[User] UpdateInfo';
-export const GETINFO = '[User] GetInfo';
+export const SIGNIN_SUCCESS = '[User] Sign in -> Success';
+export const SIGNIN_FAILED = '[User] Sign in -> Failed';
+export const SIGNOUT = '[User] Sign out';
+export const UPDATEINFO = '[User] Update info';
+export const GETINFO = '[User] Get info';
+export const GETINFO_SUCCESS = '[User] Get info -> Success';
 export const EDITINFO = '[User] EditInfo';
 export const EDITINFO_SUCCESS = '[User] EditInfo -> Success';
 export const EDITINFO_FAILED = '[User] EditInfo -> Failed';
 export const FORGOT_PASSWORD = '[User] Forgot password';
 export const FORGOT_PASSWORD_SENT_SUCCESS = '[User] Forgot password -> Sent Success';
 export const FORGOT_PASSWORD_SENT_FAILED = '[User] Forgot password -> Sent Failed';
+export const INIT_INFO = '[User] Init information';
 
 export class Login implements Action {
     readonly type = LOGIN;
@@ -54,7 +56,12 @@ export class UpdateInfo implements Action {
 
 export class GetInfo implements Action {
     readonly type = GETINFO;
-    constructor() { }
+    constructor(public payload: { email: string }) { }
+}
+
+export class GetInfoSuccess implements Action {
+    readonly type = GETINFO_SUCCESS;
+    constructor(public payload: { data: any }) { }
 }
 
 export class EditInfo implements Action {
@@ -87,12 +94,18 @@ export class ForgotPasswordSentFailed implements Action {
     constructor() { }
 }
 
+export class InitInfo implements Action {
+    readonly type = INIT_INFO;
+    constructor(public payload: { userEmail: string }) { }
+}
+
 export type All
     = Login
     | LoginSuccess
     | LoginFailed
     | UpdateInfo
     | GetInfo
+    | GetInfoSuccess
     | EditInfo
     | EditInfoSuccess
     | EditInfoFailed
@@ -101,4 +114,5 @@ export type All
     | SignInFailed
     | ForgotPassword
     | ForgotPasswordSentSuccess
-    | ForgotPasswordSentFailed;
+    | ForgotPasswordSentFailed
+    | InitInfo;

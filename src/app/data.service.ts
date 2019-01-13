@@ -18,8 +18,12 @@ export class DataService {
     this.navState = { canEnterBeforeStart: true, testing: false, testFinish: false };
     this.config$ = this.store.select('config');
     this.config$.subscribe((value) => {
-      this.config = new Array<any>();
-      this.config.push(value);
+      this.config = {};
+      for (let i = 0; i < value.system.length; i++) {
+        this.config[value.system[i].key] = value.system[i].payload;
+      }
+      console.log(this.config);
+
     });
   }
 
@@ -32,7 +36,7 @@ export class DataService {
   /**
    * App config
    */
-  public config: Array<any>;
+  public config: any;
   public selectedQuestions: Array<any>;
   public quesGenOption: {
     maximum_question: 10,
@@ -46,17 +50,6 @@ export class DataService {
    */
   public fetchConfig() {
     this.store.dispatch(new ConfigAction.Fetch());
-  }
-
-  /**
-   * Get value of config
-   * @param key config name
-   */
-  getConfig(key) {
-    for (let i = 0; i < this.config.length; i++) {
-      if (this.config[i].key == key)
-        return this.config[i].value;
-    }
   }
 
 }

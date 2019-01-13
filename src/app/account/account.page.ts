@@ -4,7 +4,6 @@ import { ModalController } from '@ionic/angular';
 import { EditProfileModalPage } from '../edit-profile-modal/edit-profile-modal.page';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { DataService } from '../data.service';
-import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import IAppState from '../IAppState';
 import { Observable } from 'rxjs';
@@ -23,7 +22,7 @@ export class AccountPage implements OnInit {
     private db: AngularFireDatabase,
     private dataService: DataService, private store: Store<IAppState>) {
     this.user = this.store.select('user');
-    this.store.dispatch(new UserAction.GetInfo());
+    this.store.dispatch(new UserAction.GetInfo({ email: this.afAuth.auth.currentUser.email }));
   }
 
   email;

@@ -11,7 +11,8 @@ const defaultState: User = {
     registration: {
         hasError: false,
         message: ''
-    }
+    },
+    data: {}
 };
 
 /// Reducer function
@@ -27,6 +28,8 @@ export function userReducer(state: User = defaultState, action: Action) {
             return { ...state, registration: { hasError: false, message: '' } };
         case UserAction.SIGNIN_FAILED:
             return { ...state, registration: { hasError: true, message: action.payload.message } };
+        case UserAction.GETINFO_SUCCESS:
+            return { ...state, data: action.payload.data };
         default:
             return state;
     }

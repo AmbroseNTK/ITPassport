@@ -3,4 +3,5 @@ export interface User {
     error: boolean;
     signing: boolean;
     registration: { hasError: boolean, message: string };
+    data: any;
 }

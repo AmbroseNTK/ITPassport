@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>itpassport documentation</title>
+        <title>IT Passport Documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">itpassport documentation</a>
+            <a href="../" class="navbar-brand">IT Passport Documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -453,8 +453,8 @@ export class TestResultPage implements OnInit {
     &lt;ion-item *ngFor&#x3D;&quot;let result of resultList; let i &#x3D; index&quot;&gt;
 
       &lt;ion-item slot&#x3D;&quot;start&quot; lines&#x3D;&quot;none&quot; style&#x3D;&quot;max-width: 50px; min-width: 50px;&quot;&gt;
-        &lt;ion-img src&#x3D;&quot;/assets/correct.svg&quot; *ngIf&#x3D;&quot;result.correct&quot;&gt;&lt;/ion-img&gt;
-        &lt;ion-img src&#x3D;&quot;/assets/wrong.svg&quot; *ngIf&#x3D;&quot;!result.correct&quot;&gt;&lt;/ion-img&gt;
+        &lt;ion-img src&#x3D;&quot;./assets/correct.svg&quot; *ngIf&#x3D;&quot;result.correct&quot;&gt;&lt;/ion-img&gt;
+        &lt;ion-img src&#x3D;&quot;./assets/wrong.svg&quot; *ngIf&#x3D;&quot;!result.correct&quot;&gt;&lt;/ion-img&gt;
       &lt;/ion-item&gt;
 
       &lt;ion-card-title slot&#x3D;&quot;start&quot;&gt;#{{i+1}}&lt;/ion-card-title&gt;
@@ -498,7 +498,7 @@ export class TestResultPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary">    <ion-title style="font-size: 20pt;">Result: {{percent}} %</ion-title>    <ion-button slot="end" fill="outline" color="light" (click)="goBack()">      <ion-icon name="arrow-round-back"></ion-icon>      Back    </ion-button>  </ion-toolbar></ion-header><ion-content padding color="primary">  <ion-list>    <ion-item *ngFor="let result of resultList; let i = index">      <ion-item slot="start" lines="none" style="max-width: 50px; min-width: 50px;">        <ion-img src="/assets/correct.svg" *ngIf="result.correct"></ion-img>        <ion-img src="/assets/wrong.svg" *ngIf="!result.correct"></ion-img>      </ion-item>      <ion-card-title slot="start">#{{i+1}}</ion-card-title>      <ion-card-subtitle slot="start">{{result.question[\'Title\']}}</ion-card-subtitle>    </ion-item>  </ion-list></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary">    <ion-title style="font-size: 20pt;">Result: {{percent}} %</ion-title>    <ion-button slot="end" fill="outline" color="light" (click)="goBack()">      <ion-icon name="arrow-round-back"></ion-icon>      Back    </ion-button>  </ion-toolbar></ion-header><ion-content padding color="primary">  <ion-list>    <ion-item *ngFor="let result of resultList; let i = index">      <ion-item slot="start" lines="none" style="max-width: 50px; min-width: 50px;">        <ion-img src="./assets/correct.svg" *ngIf="result.correct"></ion-img>        <ion-img src="./assets/wrong.svg" *ngIf="!result.correct"></ion-img>      </ion-item>      <ion-card-title slot="start">#{{i+1}}</ion-card-title>      <ion-card-subtitle slot="start">{{result.question[\'Title\']}}</ion-card-subtitle>    </ion-item>  </ion-list></ion-content></div>'
     var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BeforeStartPage', 'selector': 'app-before-start'},{'name': 'EditProfileModalPage', 'selector': 'app-edit-profile-modal'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'SignUpPage', 'selector': 'app-sign-up'},{'name': 'Tab1Page', 'selector': 'app-tab1'},{'name': 'Tab2Page', 'selector': 'app-tab2'},{'name': 'Tab3Page', 'selector': 'app-tab3'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TestResultPage', 'selector': 'app-test-result'},{'name': 'TestRoomPage', 'selector': 'app-test-room'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'TestResultPage'};

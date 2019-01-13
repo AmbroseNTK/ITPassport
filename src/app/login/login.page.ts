@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { map } from 'rxjs/operators';
 import { DataService } from '../data.service';
 import { Observable } from 'rxjs';
 import { User } from '../states/models/user.model';
 import { Store } from '@ngrx/store';
 import * as UserAction from '../states/actions/user.actions';
 import IAppState from '../IAppState';
+
 
 
 @Component({
@@ -30,6 +28,7 @@ export class LoginPage implements OnInit {
     private dataService: DataService,
     private store: Store<IAppState>) {
     this.user = store.select('user');
+    this.dataService.fetchConfig();
   }
 
   ngOnInit() {
@@ -51,7 +50,6 @@ export class LoginPage implements OnInit {
     this.user.subscribe((value) => {
       if (!value.error) {
         this.router.navigate(['/main/account']);
-        this.dataService.fetchConfig();
       }
       else {
         this.presentToast('Email or password is invalid');
