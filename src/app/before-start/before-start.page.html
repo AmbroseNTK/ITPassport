@@ -22,11 +22,11 @@
         <ion-grid>
           <ion-row>
             <ion-col>
-              <ion-button fill="outline" shape="round" style="width: 100%" [routerLink]="'/main'">
+              <ion-button fill="outline" shape="round" style="width: 100%" (click)="goBack()">
                 Back
               </ion-button>
             </ion-col>
-            <ion-col>
+            <ion-col *ngIf="isEnoughCredit">
               <ion-button fill="outline" shape="round" style="width: 100%" (click)="start()">
                 Start
               </ion-button>

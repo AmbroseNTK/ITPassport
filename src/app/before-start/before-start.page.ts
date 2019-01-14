@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-before-start',
@@ -9,16 +10,30 @@ import { Router } from '@angular/router';
 })
 export class BeforeStartPage implements OnInit {
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private userService: UserService) {
+    this.isEnoughCredit = this.userService.isEnoughCredit();
+  }
+
+  isEnoughCredit = false;
 
   ngOnInit() {
   }
 
   start() {
-    this.dataService.navState['canEnterBeforeStart'] = false;
-    this.dataService.navState['testing'] = true;
-    this.dataService.navState['testFinish'] = false;
-    this.router.navigate(['/test-room']);
+    if (this.userService.isEnoughCredit()) {
+      this.userService.addCredits(-this.dataService.config['price']);
+      this.dataService.navState['canEnterBeforeStart'] = false;
+      this.dataService.navState['testing'] = true;
+      this.dataService.navState['testFinish'] = false;
+      this.router.navigate(['/test-room']);
+    }
+    else {
+
+    }
+  }
+
+  goBack() {
+    this.router.navigate(['/main/account']);
   }
 
 }

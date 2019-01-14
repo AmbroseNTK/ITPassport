@@ -18,6 +18,11 @@ export const FORGOT_PASSWORD = '[User] Forgot password';
 export const FORGOT_PASSWORD_SENT_SUCCESS = '[User] Forgot password -> Sent Success';
 export const FORGOT_PASSWORD_SENT_FAILED = '[User] Forgot password -> Sent Failed';
 export const INIT_INFO = '[User] Init information';
+export const UPDATE_CREDIT = '[User] Update credit';
+export const UPDATE_CREDIT_SUCCESS = "[User] Update credit -> Success";
+export const UPDATE_CREDIT_FAILED = "[User] Update credit -> Failed";
+export const REMOVE_CREDITS = '[User] Remove credits';
+export const NO_MORE_CREDITS = '[User] No more credits';
 
 export class Login implements Action {
     readonly type = LOGIN;
@@ -99,6 +104,21 @@ export class InitInfo implements Action {
     constructor(public payload: { userEmail: string }) { }
 }
 
+export class UpdateCredit implements Action {
+    readonly type = UPDATE_CREDIT;
+    constructor(public payload: { data: any, email: string, amount: number }) { }
+}
+
+export class UpdateCreditSuccess implements Action {
+    readonly type = UPDATE_CREDIT_SUCCESS;
+    constructor() { }
+}
+
+export class UpdateCreditFailed implements Action {
+    readonly type = UPDATE_CREDIT_FAILED;
+    constructor() { }
+}
+
 export type All
     = Login
     | LoginSuccess
@@ -115,4 +135,7 @@ export type All
     | ForgotPassword
     | ForgotPasswordSentSuccess
     | ForgotPasswordSentFailed
-    | InitInfo;
+    | InitInfo
+    | UpdateCredit
+    | UpdateCreditSuccess
+    | UpdateCreditFailed;

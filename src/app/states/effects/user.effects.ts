@@ -8,6 +8,7 @@ import * as UserAction from '../actions/user.actions';
 import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { DataService } from '../../data.service';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { UpdateCreditFailed } from '../actions/user.actions';
 
 export type Action = UserAction.All;
 
@@ -81,7 +82,7 @@ export class UserEffects {
     getInfo: Observable<Action> = this.actions.pipe(
         ofType(UserAction.GETINFO),
         map((action: UserAction.GetInfo) => action.payload),
-        switchMap((payload) => from(this.db.list('users/' + payload.email.replace('.', '&') + '/').snapshotChanges())
+        mergeMap((payload) => from(this.db.list('users/' + payload.email.replace('.', '&') + '/').snapshotChanges())
             .pipe(
                 map((changes) => {
                     if (changes.length !== 0) {
@@ -103,4 +104,13 @@ export class UserEffects {
                 )
             ))
     );
+
+    @Effect()
+    updateCredit: Observable<Action> = this.actions.pipe(
+        ofType(UserAction.UPDATE_CREDIT),
+        map((action: UserAction.UpdateCredit) => action.payload),
+        switchMap((payload) => this.db.object('users/' + payload.email.replace('.', '&')).update(payload.data)),
+        map(() => new UserAction.UpdateCreditSuccess()),
+        catchError(() => of(new UserAction.UpdateCreditFailed()))
+    )
 }

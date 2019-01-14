@@ -30,6 +30,11 @@ export function userReducer(state: User = defaultState, action: Action) {
             return { ...state, registration: { hasError: true, message: action.payload.message } };
         case UserAction.GETINFO_SUCCESS:
             return { ...state, data: action.payload.data };
+
+        case UserAction.UPDATE_CREDIT:
+            let updateCredit = action.payload.data;
+            updateCredit['credits'] += action.payload.amount;
+            return { ...state, data: updateCredit }
         default:
             return state;
     }
