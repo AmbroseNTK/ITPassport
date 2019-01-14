@@ -138,7 +138,6 @@ export class TrainingPage implements OnInit {
   }
 
 
-
   prepareStart() {
     this.dataService.navState['canEnterBeforeStart'] = true;
     this.router.navigate(['/before-start']);

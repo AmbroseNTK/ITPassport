@@ -5,11 +5,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, of, from } from 'rxjs';
 
 import * as UserAction from '../actions/user.actions';
-import { catchError, map, mergeMap, switchMap, delay } from 'rxjs/operators';
+import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { DataService } from '../../data.service';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { list } from 'tar';
-import { GetInfoSuccess } from '../actions/user.actions';
 
 export type Action = UserAction.All;
 
@@ -77,7 +75,7 @@ export class UserEffects {
                 catchError(err => of(new UserAction.ForgotPasswordSentFailed()))
             )
         )
-    )
+    );
 
     @Effect()
     getInfo: Observable<Action> = this.actions.pipe(
@@ -89,16 +87,20 @@ export class UserEffects {
                     if (changes.length !== 0) {
                         let data = {};
                         for (let i = 0; i < changes.length; i++) {
-                            data[changes[i].key] = changes[i].payload;
+                            data[changes[i].key] = changes[i].payload.val();
                         }
                         return new UserAction.GetInfoSuccess({ data: data });
                     }
                     let obj = {};
-                    obj[this.afAuth.auth.currentUser.email.replace('.', '&')] = { 'credits': this.dataService.config['default_point'] };
+                    obj[this.afAuth.auth.currentUser.email.replace('.', '&')] = {
+                        'credits': this.dataService.config['default_point'],
+                        'role': 'normal'
+                    };
                     console.log(obj);
                     this.db.object('users/').update(obj);
                     return new UserAction.GetInfoSuccess({ data: {} });
                 }
-                )))
-    )
+                )
+            ))
+    );
 }
