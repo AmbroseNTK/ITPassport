@@ -8,7 +8,8 @@ import * as UserAction from '../actions/user.actions';
 import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { DataService } from '../../data.service';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { UpdateCreditFailed } from '../actions/user.actions';
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 export type Action = UserAction.All;
 
@@ -17,7 +18,9 @@ export class UserEffects {
     constructor(private actions: Actions,
         private afAuth: AngularFireAuth,
         private dataService: DataService,
-        private db: AngularFireDatabase) {
+        private userService: UserService,
+        private db: AngularFireDatabase,
+        private router: Router) {
     }
 
     @Effect()
@@ -95,11 +98,11 @@ export class UserEffects {
                     let obj = {};
                     obj[this.afAuth.auth.currentUser.email.replace('.', '&')] = {
                         'credits': this.dataService.config['default_point'],
-                        'role': 'normal'
+                        'role': 'normal',
+                        'log': { 'dummy': 0 }
                     };
-                    console.log(obj);
                     this.db.object('users/').update(obj);
-                    return new UserAction.GetInfoSuccess({ data: {} });
+                    return new UserAction.GetInfoSuccess({ data: obj });
                 }
                 )
             ))
@@ -110,7 +113,25 @@ export class UserEffects {
         ofType(UserAction.UPDATE_CREDIT),
         map((action: UserAction.UpdateCredit) => action.payload),
         switchMap((payload) => this.db.object('users/' + payload.email.replace('.', '&')).update(payload.data)),
-        map(() => new UserAction.UpdateCreditSuccess()),
+        mergeMap(() => {
+            if (this.userService.getPayType() == this.userService.PAY_FOR_QUESTION) {
+                this.router.navigate(['/test-room']);
+            }
+            return of(new UserAction.UpdateCreditSuccess())
+        }),
         catchError(() => of(new UserAction.UpdateCreditFailed()))
     )
+
+    @Effect()
+    updateLog: Observable<Action> = this.actions.pipe(
+        ofType(UserAction.UPDATE_LOG),
+        map((action: UserAction.UpdateLog) => action.payload),
+        switchMap((payload) => this.db.object('users/' + this.afAuth.auth.currentUser.email.replace('.', '&')).update(payload.data)),
+        map(() => {
+            this.router.navigate(['/test-result']);
+            return new UserAction.UpdateLogSuccess()
+        }),
+        catchError(() => of(new UserAction.UpdateLogFailed()))
+    )
+
 }

@@ -12,7 +12,7 @@ const defaultState: User = {
         hasError: false,
         message: ''
     },
-    data: {}
+    data: {},
 };
 
 /// Reducer function
@@ -21,7 +21,7 @@ export function userReducer(state: User = defaultState, action: Action) {
         case UserAction.LOGIN:
             return { ...state, signing: true };
         case UserAction.LOGIN_SUCCESS:
-            return { currentUser: action.payload.currentUser, signing: false, error: false };
+            return { ...state, currentUser: action.payload.currentUser, signing: false, error: false };
         case UserAction.LOGIN_FAILED:
             return { ...state, signing: false, error: true };
         case UserAction.SIGNIN_SUCCESS:
@@ -35,6 +35,12 @@ export function userReducer(state: User = defaultState, action: Action) {
             let updateCredit = action.payload.data;
             updateCredit['credits'] += action.payload.amount;
             return { ...state, data: updateCredit }
+
+        case UserAction.UPDATE_LOG:
+            let updateLog = action.payload.data;
+            updateLog.log[action.payload.timestamp] = action.payload.log;
+            return { ...state, data: updateLog }
+
         default:
             return state;
     }

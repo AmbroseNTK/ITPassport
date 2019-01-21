@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { User } from '../states/models/user.model';
 import * as UserAction from '../states/actions/user.actions';
 import { DataService } from '../data.service';
+import { UpdateLog } from '../states/actions/user.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,11 @@ export class UserService {
   user: User;
   user$: Observable<User>;
 
+  private payType;
+
+  PAY_FOR_QUESTION = "PAY_FOR_QUESTION";
+  ADD_MORE_CREDITS = "ADD MORE CREDITS";
+
   constructor(private store: Store<IAppState>, private dataService: DataService) {
     this.user$ = store.select('user');
     this.user$.subscribe((payload) => {
@@ -21,7 +27,12 @@ export class UserService {
     })
   }
 
-  public addCredits(amount: number) {
+  public getPayType() {
+    return this.payType;
+  }
+
+  public addCredits(amount: number, type: string) {
+    this.payType = type;
     this.store.dispatch(new UserAction.UpdateCredit({
       data: this.user.data,
       amount: amount,
@@ -31,6 +42,18 @@ export class UserService {
 
   public isEnoughCredit() {
     return this.user.data.credits >= this.dataService.config['price'];
+  }
+
+  public writeLog(time, correct, incorrect) {
+    this.store.dispatch(new UserAction.UpdateLog({
+      data: this.user.data,
+      timestamp: Date.now(),
+      log: {
+        'time': time,
+        'correct': correct,
+        'incorrect': incorrect
+      }
+    }))
   }
 
 }

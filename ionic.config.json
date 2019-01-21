@@ -1,7 +1,8 @@
 {
   "name": "itpassport",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular"
 }

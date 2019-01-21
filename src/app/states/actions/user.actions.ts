@@ -1,5 +1,6 @@
 
 import { Action } from '@ngrx/store';
+import { c } from 'tar';
 
 export const LOGIN = '[User] Login';
 export const LOGIN_SUCCESS = '[User] Login -> Success';
@@ -21,8 +22,13 @@ export const INIT_INFO = '[User] Init information';
 export const UPDATE_CREDIT = '[User] Update credit';
 export const UPDATE_CREDIT_SUCCESS = "[User] Update credit -> Success";
 export const UPDATE_CREDIT_FAILED = "[User] Update credit -> Failed";
+export const PAY_CREDITS = '[User] Pay credits';
+export const PAY_CREDITS_SUCCESS = '[User] Pay credits -> Success';
 export const REMOVE_CREDITS = '[User] Remove credits';
 export const NO_MORE_CREDITS = '[User] No more credits';
+export const UPDATE_LOG = "[User] Update log";
+export const UPDATE_LOG_SUCCESS = "[User] Update log -> Success";
+export const UPDATE_LOG_FAILED = "[User] Update log -> Failed";
 
 export class Login implements Action {
     readonly type = LOGIN;
@@ -119,6 +125,31 @@ export class UpdateCreditFailed implements Action {
     constructor() { }
 }
 
+export class PayCredits implements Action {
+    readonly type = PAY_CREDITS;
+    constructor(public payload: { data: any, email: string, amount: number }) { }
+}
+
+export class PayCreditsSuccess implements Action {
+    readonly type = PAY_CREDITS_SUCCESS;
+    constructor() { }
+}
+
+export class UpdateLog implements Action {
+    readonly type = UPDATE_LOG;
+    constructor(public payload: { data: any, timestamp: any, log: any }) { }
+}
+
+export class UpdateLogSuccess implements Action {
+    readonly type = UPDATE_LOG_SUCCESS;
+    constructor() { }
+}
+
+export class UpdateLogFailed implements Action {
+    readonly type = UPDATE_LOG_FAILED;
+    constructor() { }
+}
+
 export type All
     = Login
     | LoginSuccess
@@ -138,4 +169,9 @@ export type All
     | InitInfo
     | UpdateCredit
     | UpdateCreditSuccess
-    | UpdateCreditFailed;
+    | UpdateCreditFailed
+    | PayCredits
+    | PayCreditsSuccess
+    | UpdateLog
+    | UpdateLogSuccess
+    | UpdateLogFailed;

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { IonSlides, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { TimeService } from '../services/time.service';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -11,7 +13,11 @@ import { Router } from '@angular/router';
 })
 export class TestRoomPage implements OnInit {
 
-  constructor(private dataService: DataService, private toastController: ToastController, private router: Router) {
+  constructor(private dataService: DataService,
+    private toastController: ToastController,
+    private router: Router,
+    private timeService: TimeService,
+    private userService: UserService) {
     this.numOfQuestion = this.dataService.quesGenOption.maximum_question;
     this.show_title = this.dataService.quesGenOption.show_title;
     this.answers = new Array<string>();
@@ -55,7 +61,25 @@ export class TestRoomPage implements OnInit {
     this.dataService.navState['testing'] = false;
     this.dataService.navState['testFinish'] = true;
     this.dataService.testResult = this.answers;
-    this.router.navigate(['/test-result']);
+    this.timeService.stopTimer();
+    let correct = {}
+    let incorrect = {}
+    for (let i = 0; i < this.answers.length; i++) {
+      if (this.answers[i].toLowerCase() === this.questionList[i]['Correct']) {
+        correct[this.questionList[i]['ID']] = {
+          'category': this.questionList[i]['Category'],
+          'answer': this.answers[i].toLowerCase()
+        }
+      }
+      else {
+        incorrect[this.questionList[i]['ID']] = {
+          'category': this.questionList[i]['Category'],
+          'answer': this.answers[i].toLowerCase()
+        }
+      }
+    }
+    this.userService.writeLog(this.timeService.getTime(), correct, incorrect);
+    //this.router.navigate(['/test-result']);
   }
 
   selectAnswer(index, value) {

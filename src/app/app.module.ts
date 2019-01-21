@@ -25,6 +25,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './states/effects/user.effects';
 import { configReducer } from './states/reducers/config.reducer';
 import { ConfigEffects } from './states/effects/config.effect';
+import { AdMob } from "@admob-plus/ionic";
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,6 +39,7 @@ import { ConfigEffects } from './states/effects/config.effect';
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     EditProfileModalPageModule,
+
     StoreModule.forRoot({
       user: userReducer,
       config: configReducer
@@ -60,6 +62,7 @@ import { ConfigEffects } from './states/effects/config.effect';
     })
   ],
   providers: [
+    AdMob,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
