@@ -1,5 +1,8 @@
 import { User } from './states/models/user.model';
 import { Config } from './states/models/config.model';
+import { Category } from './states/models/category.model';
+import History from './states/models/history.model';
+import Question from './states/models/question.model';
 
 /**
  * Store all app states
@@ -13,4 +16,10 @@ export default interface IAppState {
      * App configuration
      */
     config: Config;
+
+    category: Category;
+
+    history: History;
+
+    question: Question;
 }

@@ -5,6 +5,9 @@ import { map } from 'rxjs/operators'
 import { AngularFireStorage } from '@angular/fire/storage';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { CategoryService } from '../services/category.service';
+import { CatInfoModalPage } from '../cat-info-modal/cat-info-modal.page';
 
 @Component({
   selector: 'app-training',
@@ -13,7 +16,13 @@ import { Router } from '@angular/router';
 })
 export class TrainingPage implements OnInit {
 
-  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage, private router: Router, private dataService: DataService) { }
+  constructor(private db: AngularFireDatabase,
+    private storage: AngularFireStorage,
+    private router: Router,
+    private modalController: ModalController,
+    private dataService: DataService,
+    private categoryService: CategoryService
+  ) { }
 
   majorCatRef: AngularFireList<any>;
   majorCatList: Observable<any>;
@@ -143,5 +152,11 @@ export class TrainingPage implements OnInit {
     this.router.navigate(['/before-start']);
   }
 
+  async openInfo(i) {
+    this.categoryService.selectCategory((i + 1).toString());
+
+    const modal = await this.modalController.create({ component: CatInfoModalPage });
+    return await modal.present();
+  }
 
 }

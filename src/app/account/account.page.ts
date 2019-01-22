@@ -12,6 +12,7 @@ import * as UserAction from '../states/actions/user.actions';
 import { UserService } from '../services/user.service';
 
 import { AdMob } from "@admob-plus/ionic";
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-account',
@@ -26,6 +27,7 @@ export class AccountPage implements OnInit {
     private admob: AdMob,
     private platform: Platform,
     private userService: UserService,
+    private categoryService: CategoryService,
     private dataService: DataService, private store: Store<IAppState>) {
 
     this.user = this.store.select('user');

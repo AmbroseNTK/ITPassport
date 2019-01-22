@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>CatInfoModal</ion-title>
+    <ion-title>Info and Progress</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <ion-card>
     <ion-item>
-      <ion-button fill="outline" slot="end" (click)="close()">Close</ion-button>
+
     </ion-item>
     <ion-card-header>
       <ion-card-title>{{catName}}</ion-card-title>
@@ -16,7 +16,16 @@
     <ion-card-content>
       <ion-item *ngFor="let subCat of subCatList">
         <ion-text>{{subCat}}</ion-text>
-
+        <ion-item slot="end">
+          <ion-grid>
+            <ion-row>
+              <ion-col>Generated: 0</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>Progress: 0%</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
       </ion-item>
     </ion-card-content>
   </ion-card>

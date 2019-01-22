@@ -26,6 +26,13 @@ import { UserEffects } from './states/effects/user.effects';
 import { configReducer } from './states/reducers/config.reducer';
 import { ConfigEffects } from './states/effects/config.effect';
 import { AdMob } from "@admob-plus/ionic";
+import { CategoryEffects } from './states/effects/category.effect';
+import { categoryReducer } from './states/reducers/category.reducer';
+import { CatInfoModalPageModule } from './cat-info-modal/cat-info-modal.module';
+import { historyReducer } from './states/reducers/history.reducer';
+import HistoryEffects from './states/effects/history.effect';
+import { QuestionEffects } from './states/effects/question.effect';
+import { questionReducer } from './states/reducers/question.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,13 +46,17 @@ import { AdMob } from "@admob-plus/ionic";
     AngularFireDatabaseModule,
     AngularFireStorageModule,
     EditProfileModalPageModule,
+    CatInfoModalPageModule,
 
     StoreModule.forRoot({
       user: userReducer,
-      config: configReducer
+      config: configReducer,
+      category: categoryReducer,
+      history: historyReducer,
+      question: questionReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 10 }),
-    EffectsModule.forRoot([UserEffects, ConfigEffects]),
+    EffectsModule.forRoot([UserEffects, ConfigEffects, CategoryEffects, HistoryEffects, QuestionEffects]),
     MarkdownModule.forRoot({
       markedOptions: {
         provide: MarkedOptions,
