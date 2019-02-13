@@ -4,6 +4,7 @@ import { IonSlides, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { TimeService } from '../services/time.service';
 import { UserService } from '../services/user.service';
+import { HistoryService } from '../services/history.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class TestRoomPage implements OnInit {
   constructor(private dataService: DataService,
     private toastController: ToastController,
     private router: Router,
+    private historyService: HistoryService,
     private timeService: TimeService,
     private userService: UserService) {
     this.numOfQuestion = this.dataService.quesGenOption.maximum_question;
@@ -78,6 +80,7 @@ export class TestRoomPage implements OnInit {
         }
       }
     }
+    this.userService.setHistoryService(this.historyService);
     this.userService.writeLog(this.timeService.getTime(), correct, incorrect);
     //this.router.navigate(['/test-result']);
   }
@@ -106,9 +109,9 @@ export class TestRoomPage implements OnInit {
       let result = content.match(re);
       if (result != undefined) {
         let raw = result['0'].split(' ');
-        console.log(raw);
+        //console.log(raw);
         for (let i = 0; i < raw.length; i++) {
-          console.log(raw[i].slice(5, raw[i].length).replace(/[^a-zA-Z0-9._]*/gm, ''));
+          //console.log(raw[i].slice(5, raw[i].length).replace(/[^a-zA-Z0-9._]*/gm, ''));
           let image = this.dataService.imageLink.find((value, index, obj) => {
             return value.name === raw[i].slice(5, raw[i].length).replace(/[^a-zA-Z0-9._]*/gm, '');
           })

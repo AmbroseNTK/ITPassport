@@ -10,6 +10,7 @@ import { DataService } from '../../data.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { UserType } from '../../UserType';
 
 export type Action = UserAction.All;
 
@@ -98,7 +99,7 @@ export class UserEffects {
                     let obj = {};
                     obj[this.afAuth.auth.currentUser.email.replace('.', '&')] = {
                         'credits': this.dataService.config['default_point'],
-                        'role': 'normal',
+                        'role': payload.annonymous ? UserType.NORMAL : UserType.INACTIVATED,
                         'log': { 'dummy': 0 }
                     };
                     this.db.object('users/').update(obj);

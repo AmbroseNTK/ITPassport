@@ -30,6 +30,7 @@ export const UPDATE_LOG = "[User] Update log";
 export const UPDATE_LOG_SUCCESS = "[User] Update log -> Success";
 export const UPDATE_LOG_FAILED = "[User] Update log -> Failed";
 
+
 export class Login implements Action {
     readonly type = LOGIN;
     constructor(public payload: { email: string, password: string }) { }
@@ -67,7 +68,7 @@ export class UpdateInfo implements Action {
 
 export class GetInfo implements Action {
     readonly type = GETINFO;
-    constructor(public payload: { email: string }) { }
+    constructor(public payload: { email: string, annonymous: boolean }) { }
 }
 
 export class GetInfoSuccess implements Action {
@@ -149,6 +150,7 @@ export class UpdateLogFailed implements Action {
     readonly type = UPDATE_LOG_FAILED;
     constructor() { }
 }
+
 
 export type All
     = Login

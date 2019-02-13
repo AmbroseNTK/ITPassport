@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CategoryService } from '../services/category.service';
 import { CatInfoModalPage } from '../cat-info-modal/cat-info-modal.page';
+import { QuestionService } from '../services/question.service';
 
 @Component({
   selector: 'app-training',
@@ -21,6 +22,7 @@ export class TrainingPage implements OnInit {
     private router: Router,
     private modalController: ModalController,
     private dataService: DataService,
+    //private questionService: QuestionService,
     private categoryService: CategoryService
   ) { }
 
@@ -86,7 +88,7 @@ export class TrainingPage implements OnInit {
       this.maxImage = snapshot.length;
       let cur = 0;
       snapshot.forEach((value) => {
-        this.storage.ref('imgs/' + value.payload.val()).getDownloadURL().subscribe((val) => {
+        this.storage.ref('ip_imgs/' + value.payload.val()).getDownloadURL().subscribe((val) => {
           this.imageLink.push({ name: value.payload.val(), link: val });
           cur++;
           this.loadingPercent = cur / this.maxImage;
@@ -105,6 +107,7 @@ export class TrainingPage implements OnInit {
 
     this.questionList.subscribe((value) => {
       this.questions = value;
+      console.log(this.questions);
     })
 
 
@@ -116,10 +119,11 @@ export class TrainingPage implements OnInit {
     for (let i = 0; i < this.catTree.length; i++) {
       for (let j = 0; j < this.catTree[i].length; j++) {
         if (this.catTree[i][j]) {
-          let selected = this.getQuestion(i, j);
+          let selected = this.getQuestionForAP(i, j);
           for (let k = 0; k < selected.length; k++) {
             this.selectedQuestion.push(selected[k]);
           }
+          console.log(selected);
         }
       }
     }
@@ -127,7 +131,7 @@ export class TrainingPage implements OnInit {
     this.dataService.selectedQuestions = this.selectedQuestion;
   }
 
-  getQuestion(major, minor) {
+  getQuestionForFE(major, minor) {
     let questList = new Array<any>();
     let majorKeys = Object.keys(this.questions);
     let minorKeys = Object.keys(this.questions[majorKeys[major]]);
@@ -146,6 +150,22 @@ export class TrainingPage implements OnInit {
     return questList;
   }
 
+  getQuestionForAP(major, minor) {
+    let questList = new Array<any>();
+    let majorKeys = Object.keys(this.questions);
+    let minorKeys = Object.keys(this.questions[majorKeys[major]]);
+    let subKey = Object.keys(this.questions[major][minorKeys[minor]]);
+
+    if (subKey != undefined) {
+      for (let i = 0; i < subKey.length; i++) {
+        {
+          questList.push(this.questions[major][minorKeys[minor]][subKey[i]]);
+        }
+      }
+    }
+    return questList;
+  }
+
 
   prepareStart() {
     this.dataService.navState['canEnterBeforeStart'] = true;
@@ -153,8 +173,8 @@ export class TrainingPage implements OnInit {
   }
 
   async openInfo(i) {
+    console.log((i + 1).toString());
     this.categoryService.selectCategory((i + 1).toString());
-
     const modal = await this.modalController.create({ component: CatInfoModalPage });
     return await modal.present();
   }

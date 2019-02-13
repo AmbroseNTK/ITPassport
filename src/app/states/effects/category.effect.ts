@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Observable, of } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { map, mergeMap } from 'rxjs/operators';
+import { map, mergeMap, catchError, switchMap } from 'rxjs/operators';
 
 export type Action = CategoryAction.All;
 
@@ -14,15 +14,17 @@ export class CategoryEffects {
     @Effect()
     fetch: Observable<Action> = this.actions.pipe(
         ofType(CategoryAction.FETCH),
-        mergeMap(() => this.db.list('titles/').snapshotChanges()),
+        switchMap(() => this.db.list('titles/').snapshotChanges()),
         map((changes) => {
             let categories = changes.map((value) => ({ key: value.key, payload: value.payload.val() }));
             let cat = {};
+            console.log(categories);
             for (let i = 0; i < categories.length; i++) {
                 cat[categories[i].key] = categories[i].payload;
             }
             return new CategoryAction.FetchSuccess({ cat: cat });
-        })
+        }),
+        catchError(() => of(new CategoryAction.FetchFailed()))
     );
 
 }

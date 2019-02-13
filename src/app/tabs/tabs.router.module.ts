@@ -9,6 +9,15 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'welcome',
+        children: [
+          {
+            path: '',
+            loadChildren: '../welcome/welcome.module#WelcomePageModule'
+          }
+        ]
+      },
+      {
         path: 'account',
         children: [
           {

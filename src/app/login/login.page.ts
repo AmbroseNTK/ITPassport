@@ -9,7 +9,6 @@ import * as UserAction from '../states/actions/user.actions';
 import IAppState from '../IAppState';
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -27,12 +26,17 @@ export class LoginPage implements OnInit {
     private toastController: ToastController,
     private dataService: DataService,
     private store: Store<IAppState>) {
+
     this.user = store.select('user');
     this.dataService.fetchConfig();
   }
 
   ngOnInit() {
 
+  }
+
+  isObsoleted() {
+    return this.dataService.config['is_obsolete'];
   }
 
   async presentToast(message) {
@@ -44,17 +48,19 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.email = 'nguyentuankiet23031998@gmail.com';
-    this.password = '000000';
-    this.store.dispatch(new UserAction.Login({ email: this.email, password: this.password }));
-    this.user.subscribe((value) => {
-      if (!value.error) {
-        this.router.navigate(['/main/account']);
-      }
-      else {
-        this.presentToast('Email or password is invalid');
-      }
-    })
+    this.email = 'kiettuannguyense@gmail.com';
+    this.password = '23031998';
+    if (!this.isObsoleted()) {
+      this.store.dispatch(new UserAction.Login({ email: this.email, password: this.password }));
+      this.user.subscribe((value) => {
+        if (!value.error) {
+          this.router.navigate(['/main/account']);
+        }
+        else {
+          this.presentToast('Email or password is invalid');
+        }
+      })
+    }
   }
 
   forgotPassword() {

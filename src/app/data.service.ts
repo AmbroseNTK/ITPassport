@@ -18,12 +18,7 @@ export class DataService {
     this.navState = { canEnterBeforeStart: true, testing: false, testFinish: false };
     this.config$ = this.store.select('config');
     this.config$.subscribe((value) => {
-      this.config = {};
-      for (let i = 0; i < value.system.length; i++) {
-        this.config[value.system[i].key] = value.system[i].payload;
-      }
-      console.log(this.config);
-
+      this.config = value.system;
     });
   }
 

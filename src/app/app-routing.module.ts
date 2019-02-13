@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'before-start', loadChildren: './before-start/before-start.module#BeforeStartPageModule', canActivate: [BeforeTestGuard] },
   { path: 'test-room', loadChildren: './test-room/test-room.module#TestRoomPageModule', canActivate: [OnFinishTestGuard], canDeactivate: [InTestGuard] },
   { path: 'test-result', loadChildren: './test-result/test-result.module#TestResultPageModule' },
-  { path: 'cat-info-modal', loadChildren: './cat-info-modal/cat-info-modal.module#CatInfoModalPageModule' }
+  { path: 'cat-info-modal', loadChildren: './cat-info-modal/cat-info-modal.module#CatInfoModalPageModule' },
+  { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

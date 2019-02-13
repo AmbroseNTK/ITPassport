@@ -29,12 +29,15 @@
         <ion-row>
           <ion-col>
             <div>
-              <ion-button color="primary" style="margin-top:10px; width: 100%;" (click)="login()">Login</ion-button>
+              <ion-button color="primary" style="margin-top:10px; width: 100%;" (click)="login()"
+                *ngIf="!isObsoleted()">
+                Login</ion-button>
             </div>
           </ion-col>
           <ion-col>
             <div>
-              <ion-button color="primary" style="margin-top:10px; width: 100%;" [routerLink]="'/sign-up'">Sign
+              <ion-button color="primary" style="margin-top:10px; width: 100%;" [routerLink]="'/sign-up'"
+                *ngIf="!isObsoleted()">Sign
                 Up</ion-button>
             </div>
           </ion-col>
@@ -42,7 +45,8 @@
         <ion-row>
           <ion-col>
             <div>
-              <ion-button color="light" style="margin-top:10px; width: 100%;" (click)="forgotPassword()">
+              <ion-button color="light" style="margin-top:10px; width: 100%;" (click)="forgotPassword()"
+                *ngIf="!isObsoleted()">
                 I forgot my password
               </ion-button>
             </div>

@@ -21,7 +21,7 @@ export class QuestionEffects {
             let questionList = {};
             let cat = Object.keys(question);
             for (let i = 0; i < cat.length; i++) {
-                questionList[cat[i]] = question[i].payload;
+                questionList[cat[i].toString()] = question[i].payload;
             }
             return new QuestionAction.FetchSuccess({ list: questionList });
         })
