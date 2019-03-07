@@ -48,8 +48,8 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    this.email = 'kiettuannguyense@gmail.com';
-    this.password = '23031998';
+    //this.email = 'kiettuannguyense@gmail.com';
+    //this.password = '23031998';
     if (!this.isObsoleted()) {
       this.store.dispatch(new UserAction.Login({ email: this.email, password: this.password }));
       this.user.subscribe((value) => {

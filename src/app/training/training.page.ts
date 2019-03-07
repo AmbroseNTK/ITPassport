@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CategoryService } from '../services/category.service';
 import { CatInfoModalPage } from '../cat-info-modal/cat-info-modal.page';
-import { QuestionService } from '../services/question.service';
 
 @Component({
   selector: 'app-training',
@@ -177,6 +176,7 @@ export class TrainingPage implements OnInit {
     this.categoryService.selectCategory((i + 1).toString());
     const modal = await this.modalController.create({ component: CatInfoModalPage });
     return await modal.present();
+
   }
 
 }

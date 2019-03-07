@@ -86,7 +86,7 @@ export class UserEffects {
     getInfo: Observable<Action> = this.actions.pipe(
         ofType(UserAction.GETINFO),
         map((action: UserAction.GetInfo) => action.payload),
-        mergeMap((payload) => from(this.db.list('users/' + payload.email.replace('.', '&') + '/').snapshotChanges())
+        mergeMap((payload) => from(this.db.list('users/' + payload.email.replace(/\./g, '&') + '/').snapshotChanges())
             .pipe(
                 map((changes) => {
                     if (changes.length !== 0) {
@@ -97,7 +97,7 @@ export class UserEffects {
                         return new UserAction.GetInfoSuccess({ data: data });
                     }
                     let obj = {};
-                    obj[this.afAuth.auth.currentUser.email.replace('.', '&')] = {
+                    obj[this.afAuth.auth.currentUser.email.replace(/\./g, '&')] = {
                         'credits': this.dataService.config['default_point'],
                         'role': payload.annonymous ? UserType.NORMAL : UserType.INACTIVATED,
                         'log': { 'dummy': 0 }
@@ -113,7 +113,7 @@ export class UserEffects {
     updateCredit: Observable<Action> = this.actions.pipe(
         ofType(UserAction.UPDATE_CREDIT),
         map((action: UserAction.UpdateCredit) => action.payload),
-        switchMap((payload) => this.db.object('users/' + payload.email.replace('.', '&')).update(payload.data)),
+        switchMap((payload) => this.db.object('users/' + payload.email.replace(/\./g, '&')).update(payload.data)),
         mergeMap(() => {
             if (this.userService.getPayType() == this.userService.PAY_FOR_QUESTION) {
                 this.router.navigate(['/test-room']);
@@ -127,7 +127,7 @@ export class UserEffects {
     updateLog: Observable<Action> = this.actions.pipe(
         ofType(UserAction.UPDATE_LOG),
         map((action: UserAction.UpdateLog) => action.payload),
-        switchMap((payload) => this.db.object('users/' + this.afAuth.auth.currentUser.email.replace('.', '&')).update(payload.data)),
+        switchMap((payload) => this.db.object('users/' + this.afAuth.auth.currentUser.email.replace(/\./g, '&')).update(payload.data)),
         map(() => {
             this.router.navigate(['/test-result']);
             return new UserAction.UpdateLogSuccess()

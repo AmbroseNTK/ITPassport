@@ -47,7 +47,7 @@
     "cordova-windows": "6.0.1",
     "core-js": "^2.5.4",
     "firebase": "^5.7.2",
-    "ionic": "^4.10.2",
+    "ionic": "^4.9.0",
     "ionic-long-press": "^1.5.0",
     "ngx-markdown": "^7.0.3",
     "rxjs": "~6.3.3",

@@ -16,7 +16,8 @@ const routes: Routes = [
   { path: 'test-room', loadChildren: './test-room/test-room.module#TestRoomPageModule', canActivate: [OnFinishTestGuard], canDeactivate: [InTestGuard] },
   { path: 'test-result', loadChildren: './test-result/test-result.module#TestResultPageModule' },
   { path: 'cat-info-modal', loadChildren: './cat-info-modal/cat-info-modal.module#CatInfoModalPageModule' },
-  { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' }
+  { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
+  { path: 'challenge', loadChildren: './challenge/challenge.module#ChallengePageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

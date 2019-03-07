@@ -36,11 +36,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'challenge',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../challenge/challenge.module#ChallengePageModule'
           }
         ]
       },

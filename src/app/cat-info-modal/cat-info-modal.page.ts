@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../services/category.service';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cat-info-modal',
@@ -14,7 +16,7 @@ export class CatInfoModalPage implements OnInit {
 
   category;
 
-  constructor(private categoryService: CategoryService) {
+  constructor(private categoryService: CategoryService, private modalCtrl: ModalController) {
     this.category = categoryService.getSelectedCategory();
     this.subCatList = new Array<{}>();
     this.catName = this.category['title'];
@@ -33,7 +35,7 @@ export class CatInfoModalPage implements OnInit {
   }
 
   close() {
-
+    this.modalCtrl.dismiss();
   }
 
 }

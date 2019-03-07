@@ -32,7 +32,7 @@ export class AccountPage implements OnInit {
 
     this.user = this.store.select('user');
     this.store.dispatch(new UserAction.GetInfo({ email: this.afAuth.auth.currentUser.email, annonymous: dataService.config['annonymous_mode'] }));
-    this.admob.setDevMode(true);
+    //this.admob.setDevMode(true);
     if (this.platform.is('android') || this.platform.is('ios')) {
       this.loadAds();
       document.addEventListener('admob.reward_video.reward', () => {
@@ -72,7 +72,7 @@ export class AccountPage implements OnInit {
     } else if (this.platform.is('ios')) {
       adId = 'YOUR_ADID_IOS';
     }
-    this.admob.rewardVideo.load({ id: adId, })
+    this.admob.rewardVideo.load({ id: adId })
       .then(() => {
         this.enableAds = true;
       });
