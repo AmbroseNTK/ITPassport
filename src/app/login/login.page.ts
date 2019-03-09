@@ -7,6 +7,7 @@ import { User } from '../states/models/user.model';
 import { Store } from '@ngrx/store';
 import * as UserAction from '../states/actions/user.actions';
 import IAppState from '../IAppState';
+import { Storage } from '@ionic/storage';
 
 
 @Component({
@@ -25,10 +26,22 @@ export class LoginPage implements OnInit {
     private router: Router,
     private toastController: ToastController,
     private dataService: DataService,
+    private storage: Storage,
     private store: Store<IAppState>) {
 
     this.user = store.select('user');
     this.dataService.fetchConfig();
+    this.storage.get("auto_login").then((value) => {
+      if (value) {
+        this.storage.get("login_email").then((email) => {
+          this.storage.get("login_password").then((password) => {
+            this.email = email;
+            this.password = password;
+            this.login();
+          })
+        })
+      }
+    })
   }
 
   ngOnInit() {
@@ -53,11 +66,15 @@ export class LoginPage implements OnInit {
     if (!this.isObsoleted()) {
       this.store.dispatch(new UserAction.Login({ email: this.email, password: this.password }));
       this.user.subscribe((value) => {
-        if (!value.error) {
-          this.router.navigate(['/main/account']);
-        }
-        else {
-          this.presentToast('Email or password is invalid');
+        if (value.error != undefined) {
+          if (!value.error) {
+            this.storage.set("login_email", this.email);
+            this.storage.set("login_password", this.password);
+            this.router.navigate(['/main/account']);
+          }
+          else {
+            this.presentToast('Email or password is invalid');
+          }
         }
       })
     }
@@ -65,6 +82,11 @@ export class LoginPage implements OnInit {
 
   forgotPassword() {
     this.store.dispatch(new UserAction.ForgotPassword({ email: this.email }));
+  }
+
+  setAutoLogin(event) {
+    console.log(event['detail']['checked']);
+    this.storage.set("auto_login", event['detail']['checked']);
   }
 
 }

@@ -17,7 +17,7 @@ import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { EditProfileModalPageModule } from './edit-profile-modal/edit-profile-modal.module';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
-
+import { IonicStorageModule } from '@ionic/storage';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { userReducer } from '../app/states/reducers/user.reducer';
@@ -40,6 +40,10 @@ import { questionReducer } from './states/reducers/question.reducer';
   imports: [
     BrowserModule,
     IonicModule.forRoot({ hardwareBackButton: false, swipeBackEnabled: false }),
+    IonicStorageModule.forRoot({
+      name: "__itpassportdb",
+      driverOrder: ['indexeddb', 'sqlite', 'websql']
+    }),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'Firebase'),
     AngularFireAuthModule,

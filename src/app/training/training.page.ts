@@ -118,7 +118,7 @@ export class TrainingPage implements OnInit {
     for (let i = 0; i < this.catTree.length; i++) {
       for (let j = 0; j < this.catTree[i].length; j++) {
         if (this.catTree[i][j]) {
-          let selected = this.getQuestionForAP(i, j);
+          let selected = this.getQuestionForIP(i, j);
           for (let k = 0; k < selected.length; k++) {
             this.selectedQuestion.push(selected[k]);
           }
@@ -149,7 +149,7 @@ export class TrainingPage implements OnInit {
     return questList;
   }
 
-  getQuestionForAP(major, minor) {
+  getQuestionForIP(major, minor) {
     let questList = new Array<any>();
     let majorKeys = Object.keys(this.questions);
     let minorKeys = Object.keys(this.questions[majorKeys[major]]);
@@ -167,6 +167,7 @@ export class TrainingPage implements OnInit {
 
 
   prepareStart() {
+    this.onSelected();
     this.dataService.navState['canEnterBeforeStart'] = true;
     this.router.navigate(['/before-start']);
   }

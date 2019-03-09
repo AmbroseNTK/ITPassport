@@ -6,7 +6,7 @@ export type Action = UserAction.All;
 /// Default app state
 const defaultState: User = {
     currentUser: {},
-    error: true,
+    error: false,
     signing: false,
     registration: {
         hasError: false,

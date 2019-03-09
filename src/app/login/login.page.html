@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>Welcome to IT Passport (v1.0.1b)</ion-title>
+    <ion-title>Welcome to IT Passport (v1.1.3b)</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content padding>
@@ -24,6 +24,11 @@
           Password
         </ion-label>
         <ion-input type="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <ion-item style="margin-top:10px; width: 100%;">
+        <ion-label>Login automatically</ion-label>
+        <ion-checkbox (ionChange)="setAutoLogin($event)">
+        </ion-checkbox>
       </ion-item>
       <ion-grid>
         <ion-row>
@@ -53,7 +58,6 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-
     </ion-card-content>
   </ion-card>
 </ion-content>

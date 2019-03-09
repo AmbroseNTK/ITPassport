@@ -31,7 +31,7 @@
     </ion-item>
     <ion-card-content *ngIf="user| async as u">
       <ion-text *ngIf="u.data !==undefined">You have {{u.data['credits']}} credit(s)</ion-text><br />
-      <ion-button *ngIf="enableAds" color="warning" (click)="showAds()">Watch video reward</ion-button>
+      <ion-button color="warning" (click)="showAds()">Watch video reward</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

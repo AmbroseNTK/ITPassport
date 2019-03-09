@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: 'test-result', loadChildren: './test-result/test-result.module#TestResultPageModule' },
   { path: 'cat-info-modal', loadChildren: './cat-info-modal/cat-info-modal.module#CatInfoModalPageModule' },
   { path: 'welcome', loadChildren: './welcome/welcome.module#WelcomePageModule' },
-  { path: 'challenge', loadChildren: './challenge/challenge.module#ChallengePageModule' }
+  { path: 'challenge', loadChildren: './challenge/challenge.module#ChallengePageModule' },
+  { path: 'ad-page', loadChildren: './ad-page/ad-page.module#AdPagePageModule' }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

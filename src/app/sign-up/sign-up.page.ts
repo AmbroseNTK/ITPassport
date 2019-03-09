@@ -43,6 +43,7 @@ export class SignUpPage implements OnInit {
 
 
   create() {
+    this.email = this.email.trim();
     this.store.dispatch(new UserAction.SignIn(
       {
         email: this.email,
