@@ -11,7 +11,6 @@ import { User } from '../states/models/user.model';
 import * as UserAction from '../states/actions/user.actions';
 import { UserService } from '../services/user.service';
 
-import { Admob } from '@ionic-native/admob/ngx';
 import { CategoryService } from '../services/category.service';
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
@@ -32,7 +31,6 @@ export class AccountPage implements OnInit {
     private userService: UserService,
     private router: Router,
     private storage: Storage,
-    private admob: Admob,
     private dataService: DataService, private store: Store<IAppState>) {
 
     this.user = this.store.select('user');
