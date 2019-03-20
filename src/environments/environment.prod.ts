@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyDv48k3xnscCgxKFDtKiDH9weTSXsJFAAQ",
-    authDomain: "itpassport-9ccc9.firebaseapp.com",
-    databaseURL: "https://itpassport-9ccc9.firebaseio.com",
-    projectId: "itpassport-9ccc9",
-    storageBucket: "itpassport-9ccc9.appspot.com",
-    messagingSenderId: "772496616432"
+    apiKey: "AIzaSyDAkfDyl2WWnrTItP_dA3cHB3bDuE9SMVA",
+    authDomain: "fe-ionic.firebaseapp.com",
+    databaseURL: "https://fe-ionic.firebaseio.com",
+    projectId: "fe-ionic",
+    storageBucket: "fe-ionic.appspot.com",
+    messagingSenderId: "549015110189"
   }
 };

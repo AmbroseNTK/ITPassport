@@ -41,7 +41,7 @@ import { questionReducer } from './states/reducers/question.reducer';
     BrowserModule,
     IonicModule.forRoot({ hardwareBackButton: false, swipeBackEnabled: false }),
     IonicStorageModule.forRoot({
-      name: "__itpassportdb",
+      name: "__fedb",
       driverOrder: ['indexeddb', 'sqlite', 'websql']
     }),
     AppRoutingModule,
@@ -81,7 +81,7 @@ import { questionReducer } from './states/reducers/question.reducer';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    { provide: StorageBucket, useValue: 'gs://itpassport-9ccc9.appspot.com/' }
+    { provide: StorageBucket, useValue: 'gs://fe-ionic.appspot.com/' }
   ],
   bootstrap: [AppComponent]
 })

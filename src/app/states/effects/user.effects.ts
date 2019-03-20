@@ -29,7 +29,7 @@ export class UserEffects {
         ofType(UserAction.LOGIN),
         map((action: UserAction.Login) => action.payload),
         mergeMap((payload) =>
-            from(this.afAuth.auth.signInWithEmailAndPassword(payload.email, payload.password))
+            from(this.afAuth.auth.signInWithEmailAndPassword(payload.email.trim(), payload.password))
                 .pipe(
                     map(respone => new UserAction.LoginSuccess({ currentUser: this.afAuth.auth.currentUser })),
                     catchError((err) => of(new UserAction.LoginFailed(err)
@@ -97,7 +97,7 @@ export class UserEffects {
                         return new UserAction.GetInfoSuccess({ data: data });
                     }
                     let obj = {};
-                    obj[this.afAuth.auth.currentUser.email.replace(/\./g, '&')] = {
+                    obj[payload.email.replace(/\./g, '&')] = {
                         'credits': this.dataService.config['default_point'],
                         'role': payload.annonymous ? UserType.NORMAL : UserType.INACTIVATED,
                         'log': { 'dummy': 0 }

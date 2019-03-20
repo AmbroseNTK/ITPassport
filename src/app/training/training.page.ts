@@ -87,7 +87,7 @@ export class TrainingPage implements OnInit {
       this.maxImage = snapshot.length;
       let cur = 0;
       snapshot.forEach((value) => {
-        this.storage.ref('ip_imgs/' + value.payload.val()).getDownloadURL().subscribe((val) => {
+        this.storage.ref('fe_imgs/' + value.payload.val()).getDownloadURL().subscribe((val) => {
           this.imageLink.push({ name: value.payload.val(), link: val });
           cur++;
           this.loadingPercent = cur / this.maxImage;
