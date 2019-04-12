@@ -12,6 +12,7 @@ export const SIGNOUT = '[User] Sign out';
 export const UPDATEINFO = '[User] Update info';
 export const GETINFO = '[User] Get info';
 export const GETINFO_SUCCESS = '[User] Get info -> Success';
+export const GETINFO_FAILED = '[User] Get info -> Failed';
 export const EDITINFO = '[User] EditInfo';
 export const EDITINFO_SUCCESS = '[User] EditInfo -> Success';
 export const EDITINFO_FAILED = '[User] EditInfo -> Failed';
@@ -46,6 +47,11 @@ export class LoginFailed implements Action {
     constructor(public payload: { message: string }) { }
 }
 
+export class SignOut implements Action {
+    readonly type = SIGNOUT;
+    constructor() { }
+}
+
 export class SignIn implements Action {
     readonly type = SIGNIN;
     constructor(public payload: { email: string, password: string, retypePassword: string, agreeTerm: boolean }) { }
@@ -74,6 +80,11 @@ export class GetInfo implements Action {
 export class GetInfoSuccess implements Action {
     readonly type = GETINFO_SUCCESS;
     constructor(public payload: { data: any }) { }
+}
+
+export class GetInfoFailed implements Action {
+    readonly type = GETINFO_FAILED;
+    constructor() { }
 }
 
 export class EditInfo implements Action {
@@ -159,12 +170,14 @@ export type All
     | UpdateInfo
     | GetInfo
     | GetInfoSuccess
+    | GetInfoFailed
     | EditInfo
     | EditInfoSuccess
     | EditInfoFailed
     | SignIn
     | SignInSuccess
     | SignInFailed
+    | SignOut
     | ForgotPassword
     | ForgotPasswordSentSuccess
     | ForgotPasswordSentFailed

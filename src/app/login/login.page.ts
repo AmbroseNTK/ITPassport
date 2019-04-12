@@ -67,13 +67,16 @@ export class LoginPage implements OnInit {
       this.store.dispatch(new UserAction.Login({ email: this.email, password: this.password }));
       this.user.subscribe((value) => {
         if (value.error != undefined) {
+          console.log(value);
           if (!value.error) {
             this.storage.set("login_email", this.email);
             this.storage.set("login_password", this.password);
             this.router.navigate(['/main/account']);
           }
           else {
+
             this.presentToast('Email or password is invalid');
+
           }
         }
       })

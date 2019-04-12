@@ -1,12 +1,13 @@
 import { User } from '../models/user.model';
 import * as UserAction from '../actions/user.actions';
+import { SIGNOUT } from '../actions/user.actions';
 
 export type Action = UserAction.All;
 
 /// Default app state
 const defaultState: User = {
     currentUser: {},
-    error: false,
+    error: true,
     signing: false,
     registration: {
         hasError: false,
@@ -40,6 +41,8 @@ export function userReducer(state: User = defaultState, action: Action) {
             let updateLog = action.payload.data;
             updateLog.log[action.payload.timestamp] = action.payload.log;
             return { ...state, data: updateLog }
+        case UserAction.SIGNOUT:
+            return { ...state, currentUser: {}, data: {} }
 
         default:
             return state;
