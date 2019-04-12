@@ -33,8 +33,7 @@ export class AccountPage implements OnInit {
     private storage: Storage,
     private dataService: DataService, private store: Store<IAppState>) {
 
-    this.user = this.store.select('user');
-    this.store.dispatch(new UserAction.GetInfo({ email: this.afAuth.auth.currentUser.email, annonymous: dataService.config['annonymous_mode'] }));
+
   }
 
 
@@ -48,6 +47,8 @@ export class AccountPage implements OnInit {
   user: Observable<User>;
 
   ngOnInit() {
+    this.user = this.store.select('user');
+    //this.store.dispatch(new UserAction.GetInfo({ email: this.afAuth.auth.currentUser.email, annonymous: this.dataService.config['annonymous_mode'] }));
   }
 
   async openEditProfile() {
@@ -62,7 +63,7 @@ export class AccountPage implements OnInit {
     this.storage.set("login_email", "");
     this.storage.set("login_password", "");
     this.afAuth.auth.signOut();
-
+    this.store.dispatch(new UserAction.SignOut());
   }
 
   showAds() {

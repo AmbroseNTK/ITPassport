@@ -5,12 +5,15 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, of, from } from 'rxjs';
 
 import * as UserAction from '../actions/user.actions';
-import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, switchMap, tap, exhaustMap, concatMap } from 'rxjs/operators';
 import { DataService } from '../../data.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserType } from '../../UserType';
+import { User } from '../models/user.model';
+import { emit } from 'cluster';
+import { GetInfoFailed } from '../actions/user.actions';
 
 export type Action = UserAction.All;
 
@@ -32,11 +35,29 @@ export class UserEffects {
             from(this.afAuth.auth.signInWithEmailAndPassword(payload.email, payload.password))
                 .pipe(
                     map(respone => new UserAction.LoginSuccess({ currentUser: this.afAuth.auth.currentUser })),
-                    catchError((err) => of(new UserAction.LoginFailed(err)
-                    ))
+                    catchError((err) => {
+                        this.router.navigate(["/"]);
+                        return of(new UserAction.LoginFailed(err))
+                    }
+                    )
                 )
         )
     );
+
+    @Effect()
+    loginSuccess: Observable<Action> = this.actions.pipe(
+        ofType(UserAction.LOGIN_SUCCESS),
+        map((action: UserAction.LoginSuccess) => new UserAction.GetInfo({ email: action.payload.currentUser.email, annonymous: this.dataService.config['annonymous_mode'] }))
+    )
+
+    @Effect({ dispatch: false })
+    signOut: Observable<Action> = this.actions.pipe(
+        ofType(UserAction.SIGNOUT),
+        tap(() => {
+            this.router.navigate(["/"]);
+        })
+    )
+
 
     @Effect()
     editInfo: Observable<Action> = this.actions.pipe(
@@ -86,9 +107,10 @@ export class UserEffects {
     getInfo: Observable<Action> = this.actions.pipe(
         ofType(UserAction.GETINFO),
         map((action: UserAction.GetInfo) => action.payload),
-        mergeMap((payload) => from(this.db.list('users/' + payload.email.replace(/\./g, '&') + '/').snapshotChanges())
+        switchMap((payload) => from(this.db.list('users/' + payload.email.replace(/\./g, '&') + '/').snapshotChanges())
             .pipe(
                 map((changes) => {
+                    console.log(changes);
                     if (changes.length !== 0) {
                         let data = {};
                         for (let i = 0; i < changes.length; i++) {
@@ -105,7 +127,10 @@ export class UserEffects {
                     this.db.object('users/').update(obj);
                     return new UserAction.GetInfoSuccess({ data: obj });
                 }
-                )
+                ),
+                catchError((error) => {
+                    return of(new GetInfoFailed())
+                })
             ))
     );
 
