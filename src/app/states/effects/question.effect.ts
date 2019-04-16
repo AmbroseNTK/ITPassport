@@ -20,8 +20,9 @@ export class QuestionEffects {
             let question = changes.map((value) => ({ key: value.key, payload: value.payload.val() }));
             let questionList = {};
             let cat = Object.keys(question);
+            console.log(question);
             for (let i = 0; i < cat.length; i++) {
-                questionList[cat[i].toString()] = question[i].payload;
+                questionList[question[i].key] = question[i].payload;
             }
             return new QuestionAction.FetchSuccess({ list: questionList });
         })

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Observable, ObjectUnsubscribedError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
 import { AngularFireStorage } from '@angular/fire/storage';
 import { DataService } from '../data.service';
@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { CategoryService } from '../services/category.service';
 import { CatInfoModalPage } from '../cat-info-modal/cat-info-modal.page';
+import { Store } from '@ngrx/store';
+import IAppState from '../IAppState';
+import * as QuestionActions from '../states/actions/question.action'
 
 @Component({
   selector: 'app-training',
@@ -22,7 +25,8 @@ export class TrainingPage implements OnInit {
     private modalController: ModalController,
     private dataService: DataService,
     //private questionService: QuestionService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private store: Store<IAppState>
   ) { }
 
   majorCatRef: AngularFireList<any>;
@@ -33,7 +37,7 @@ export class TrainingPage implements OnInit {
 
   questionList: Observable<any>;
   questions: any;
-  selectedQuestion: Array<any>;
+  selectedQuestion = [{}];
 
   imageLink: Array<any>;
 
@@ -45,6 +49,16 @@ export class TrainingPage implements OnInit {
   catTree: Array<Array<boolean>>;
 
   async ngOnInit() {
+    this.questions = this.store.select('question');
+    this.store.dispatch(new QuestionActions.Fetch());
+    this.questions.subscribe((payload) => {
+      if (payload != undefined) {
+        this.dataService.selectedQuestions = payload.selection;
+        //console.log(this.selectedQuestion);
+        this.allowStart = this.dataService.selectedQuestions.length >= 10 && this.loadingPercent == 1;
+      }
+    })
+
     this.majorCatRef = this.db.list('titles');
     this.majorCatList = this.majorCatRef.snapshotChanges().pipe(
       map(changes =>
@@ -76,8 +90,9 @@ export class TrainingPage implements OnInit {
     });
 
     this.selectedQuestion = new Array<any>();
+
     this.loadImageURL();
-    this.loadQuestion();
+    //this.loadQuestion();
 
   }
 
@@ -113,23 +128,27 @@ export class TrainingPage implements OnInit {
   }
 
   onSelected() {
+    let catSelection = [];
     this.dataService.catMatrix = this.catTree;
-    this.selectedQuestion.splice(0, this.selectedQuestion.length);
+    //this.selectedQuestion.splice(0, this.selectedQuestion.length);
     for (let i = 0; i < this.catTree.length; i++) {
       for (let j = 0; j < this.catTree[i].length; j++) {
         if (this.catTree[i][j]) {
+          /*
           let selected = this.getQuestionForIP(i, j);
           for (let k = 0; k < selected.length; k++) {
             this.selectedQuestion.push(selected[k]);
           }
           console.log(selected);
+          */
+          catSelection.push(i + '.' + j);
         }
       }
     }
-    this.allowStart = this.selectedQuestion.length > 10 && this.loadingPercent == 1;
-    this.dataService.selectedQuestions = this.selectedQuestion;
+    this.store.dispatch(new QuestionActions.Generate({ categories: catSelection, quantity: 10 }));
   }
 
+  /*
   getQuestionForFE(major, minor) {
     let questList = new Array<any>();
     let majorKeys = Object.keys(this.questions);
@@ -164,7 +183,7 @@ export class TrainingPage implements OnInit {
     }
     return questList;
   }
-
+  */
 
   prepareStart() {
     this.onSelected();

@@ -5,14 +5,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, of, from } from 'rxjs';
 
 import * as UserAction from '../actions/user.actions';
-import { catchError, map, mergeMap, switchMap, tap, exhaustMap, concatMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, switchMap, tap } from 'rxjs/operators';
 import { DataService } from '../../data.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserType } from '../../UserType';
-import { User } from '../models/user.model';
-import { emit } from 'cluster';
 import { GetInfoFailed } from '../actions/user.actions';
 
 export type Action = UserAction.All;
@@ -121,7 +119,7 @@ export class UserEffects {
                     let obj = {};
                     obj[payload.email.replace(/\./g, '&')] = {
                         'credits': this.dataService.config['default_point'],
-                        'role': payload.annonymous ? UserType.NORMAL : UserType.INACTIVATED,
+                        'role': payload.annonymous ? this.dataService.config['default_role'] : UserType.INACTIVATED,
                         'log': { 'dummy': 0 }
                     };
                     this.db.object('users/').update(obj);
