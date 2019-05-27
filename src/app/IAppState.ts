@@ -3,6 +3,7 @@ import { Config } from './states/models/config.model';
 import { Category } from './states/models/category.model';
 import History from './states/models/history.model';
 import Question from './states/models/question.model';
+import SysLog from './states/models/syslog.model';
 
 /**
  * Store all app states
@@ -22,4 +23,6 @@ export default interface IAppState {
     history: History;
 
     question: Question;
+
+    syslog: SysLog;
 }

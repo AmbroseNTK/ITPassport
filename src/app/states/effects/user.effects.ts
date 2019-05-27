@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserType } from '../../UserType';
 import { GetInfoFailed } from '../actions/user.actions';
+import { SyslogService } from '../../services/syslog.service';
 
 export type Action = UserAction.All;
 
@@ -22,6 +23,7 @@ export class UserEffects {
         private dataService: DataService,
         private userService: UserService,
         private db: AngularFireDatabase,
+        private log: SyslogService,
         private router: Router) {
     }
 
@@ -32,9 +34,13 @@ export class UserEffects {
         mergeMap((payload) =>
             from(this.afAuth.auth.signInWithEmailAndPassword(payload.email.trim(), payload.password))
                 .pipe(
-                    map(respone => new UserAction.LoginSuccess({ currentUser: this.afAuth.auth.currentUser })),
+                    map(respone => {
+                        this.log.write("Login -> Success");
+                        return new UserAction.LoginSuccess({ currentUser: this.afAuth.auth.currentUser })
+                    }),
                     catchError((err) => {
                         this.router.navigate(["/"]);
+                        this.log.write("Login -> Failed");
                         return of(new UserAction.LoginFailed(err))
                     }
                     )
@@ -139,6 +145,7 @@ export class UserEffects {
         switchMap((payload) => this.db.object('users/' + payload.email.replace(/\./g, '&')).update(payload.data)),
         mergeMap(() => {
             if (this.userService.getPayType() == this.userService.PAY_FOR_QUESTION) {
+                this.log.write("Used credit(s) for questions");
                 this.router.navigate(['/test-room']);
             }
             return of(new UserAction.UpdateCreditSuccess())
