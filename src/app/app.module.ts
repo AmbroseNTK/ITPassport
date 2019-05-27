@@ -33,6 +33,7 @@ import { historyReducer } from './states/reducers/history.reducer';
 import HistoryEffects from './states/effects/history.effect';
 import { QuestionEffects } from './states/effects/question.effect';
 import { questionReducer } from './states/reducers/question.reducer';
+import { syslogReducer } from './states/reducers/syslog.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -57,7 +58,8 @@ import { questionReducer } from './states/reducers/question.reducer';
       config: configReducer,
       category: categoryReducer,
       history: historyReducer,
-      question: questionReducer
+      question: questionReducer,
+      syslog: syslogReducer
     }),
     StoreDevtoolsModule.instrument({ maxAge: 10 }),
     EffectsModule.forRoot([UserEffects, ConfigEffects, CategoryEffects, HistoryEffects, QuestionEffects]),

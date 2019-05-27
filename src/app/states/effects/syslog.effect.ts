@@ -25,5 +25,9 @@ export class SysLogEffects {
                 catchError(err => of(new SysLogAction.WriteFailed()))
             )
             return new SysLogAction.WriteSuccess();
+<<<<<<< HEAD
         }));
+=======
+        })
+>>>>>>> 0d9237b... add syslog
 }
