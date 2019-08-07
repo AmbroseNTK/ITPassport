@@ -12,9 +12,10 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { UserType } from '../../UserType';
 import { User } from '../models/user.model';
-import { emit } from 'cluster';
-import { GetInfoFailed } from '../actions/user.actions';
+import { GetInfoFailed, LoginGSuccess } from '../actions/user.actions';
 import { SyslogService } from '../../services/syslog.service';
+import { auth } from 'firebase';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 export type Action = UserAction.All;
 
@@ -26,6 +27,7 @@ export class UserEffects {
         private userService: UserService,
         private db: AngularFireDatabase,
         private log: SyslogService,
+        private gplus: GooglePlus,
         private router: Router) {
     }
 
@@ -48,6 +50,24 @@ export class UserEffects {
                     )
                 )
         )
+    );
+
+    @Effect()
+    loginG: Observable<Action> = this.actions.pipe(
+        ofType(UserAction.LOGIN_G),
+        mergeMap(async () => {
+
+            const gplusUser = await this.gplus.login({
+                'webClientId': '772496616432-rt7ogdkjl6mh1mc8qlmppfqs419l45nh.apps.googleusercontent.com',
+                'offline': true,
+                'scopes': 'profile email'
+            })
+            return from(this.afAuth.auth.signInWithCredential(auth.GoogleAuthProvider.credential(gplusUser)));
+        }),
+        map((credential) => {
+            return new LoginGSuccess({ currentUser: this.afAuth.auth.currentUser });
+        }),
+        catchError(err => of(new UserAction.LoginGFailed()))
     );
 
     @Effect()

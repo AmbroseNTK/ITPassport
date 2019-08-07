@@ -34,6 +34,7 @@ import HistoryEffects from './states/effects/history.effect';
 import { QuestionEffects } from './states/effects/question.effect';
 import { questionReducer } from './states/reducers/question.reducer';
 import { syslogReducer } from './states/reducers/syslog.reducer';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -82,6 +83,7 @@ import { syslogReducer } from './states/reducers/syslog.reducer';
     AdMob,
     StatusBar,
     SplashScreen,
+    GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     { provide: StorageBucket, useValue: 'gs://itpassport-9ccc9.appspot.com/' }
   ],

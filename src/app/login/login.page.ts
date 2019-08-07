@@ -60,6 +60,12 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
+  loginWithGoogle() {
+    if (!this.isObsoleted()) {
+      this.store.dispatch(new UserAction.LoginG());
+    }
+  }
+
   login() {
     //this.email = 'kiettuannguyense@gmail.com';
     //this.password = '23031998';

@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>IT Passport Documentation</title>
+        <title>itpassport documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">IT Passport Documentation</a>
+            <a href="../" class="navbar-brand">itpassport documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -44,6 +43,7 @@
 
 
 
+                   
 
 <ol class="breadcrumb">
   <li>Miscellaneous</li>
@@ -58,22 +58,55 @@
                 <td class="col-md-4">
                     <ul class="index-list">
                         <li>
-                            <a href="#Action" title="src/app/states/effects/config.effect.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../config.effect.ts)</a>
+                            <a href="#Action" title="src/app/states/effects/question.effect.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../question.effect.ts)</a>
                         </li>
                         <li>
-                            <a href="#Action" title="src/app/states/effects/user.effects.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../user.effects.ts)</a>
-                        </li>
-                        <li>
-                            <a href="#Action" title="src/app/states/reducers/config.reducer.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../config.reducer.ts)</a>
+                            <a href="#Action" title="src/app/states/reducers/syslog.reducer.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../syslog.reducer.ts)</a>
                         </li>
                         <li>
                             <a href="#Action" title="src/app/states/reducers/user.reducer.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../user.reducer.ts)</a>
                         </li>
                         <li>
-                            <a href="#All" title="src/app/states/actions/config.action.ts"><b>All</b>&nbsp;&nbsp;&nbsp;(src/.../config.action.ts)</a>
+                            <a href="#Action" title="src/app/states/reducers/question.reducer.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../question.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Action" title="src/app/states/reducers/history.reducer.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../history.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Action" title="src/app/states/reducers/config.reducer.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../config.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Action" title="src/app/states/effects/category.effect.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../category.effect.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Action" title="src/app/states/effects/config.effect.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../config.effect.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Action" title="src/app/states/reducers/category.reducer.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../category.reducer.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Action" title="src/app/states/effects/syslog.effect.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../syslog.effect.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Action" title="src/app/states/effects/user.effects.ts"><b>Action</b>&nbsp;&nbsp;&nbsp;(src/.../user.effects.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#All" title="src/app/states/actions/category.action.ts"><b>All</b>&nbsp;&nbsp;&nbsp;(src/.../category.action.ts)</a>
                         </li>
                         <li>
                             <a href="#All" title="src/app/states/actions/user.actions.ts"><b>All</b>&nbsp;&nbsp;&nbsp;(src/.../user.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#All" title="src/app/states/actions/syslog.actions.ts"><b>All</b>&nbsp;&nbsp;&nbsp;(src/.../syslog.actions.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#All" title="src/app/states/actions/question.action.ts"><b>All</b>&nbsp;&nbsp;&nbsp;(src/.../question.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#All" title="src/app/states/actions/history.action.ts"><b>All</b>&nbsp;&nbsp;&nbsp;(src/.../history.action.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#All" title="src/app/states/actions/config.action.ts"><b>All</b>&nbsp;&nbsp;&nbsp;(src/.../config.action.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -82,121 +115,313 @@
     </table>
 </section>
 
-    <h3>src/app/states/effects/config.effect.ts</h3>
+    <h3>src/app/states/effects/question.effect.ts</h3>
     <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="Action"></a>
-                        <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>Action:     <code><a href="../interfaces/Config.html" target="_self" >ConfigAction.All</a></code>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Question.html" target="_self" >QuestionAction.All</a></code>
 </code>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/states/effects/user.effects.ts</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/reducers/syslog.reducer.ts</h3>
     <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="Action"></a>
-                        <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>Action:     <code><a href="../interfaces/User.html" target="_self" >UserAction.All</a></code>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/SysLog.html" target="_self" >SysLogAction.All</a></code>
 </code>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/states/reducers/config.reducer.ts</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/reducers/user.reducer.ts</h3>
     <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="Action"></a>
-                        <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>Action:     <code><a href="../interfaces/Config.html" target="_self" >ConfigAction.All</a></code>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/User.html" target="_self" >UserAction.All</a></code>
 </code>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/states/reducers/user.reducer.ts</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/reducers/question.reducer.ts</h3>
     <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="Action"></a>
-                        <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>Action:     <code><a href="../interfaces/User.html" target="_self" >UserAction.All</a></code>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Question.html" target="_self" >QuestionAction.All</a></code>
 </code>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/states/actions/config.action.ts</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/reducers/history.reducer.ts</h3>
     <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="All"></a>
-                        <span class="name"><b>All</b><a href="#All"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>All:     <code><a href="../classes/FetchSuccess.html" target="_self" >Fetch | FetchSuccess | FetchFailed</a></code>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/History.html" target="_self" >HistoryAction.All</a></code>
 </code>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
-    <h3>src/app/states/actions/user.actions.ts</h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/reducers/config.reducer.ts</h3>
     <section>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="All"></a>
-                        <span class="name"><b>All</b><a href="#All"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>All:     <code><a href="../classes/UpdateInfo.html" target="_self" >Login | LoginSuccess | LoginFailed | UpdateInfo | GetInfo | EditInfo | EditInfoSuccess | EditInfoFailed | SignIn | SignInSuccess | SignInFailed | ForgotPassword | ForgotPasswordSentSuccess | ForgotPasswordSentFailed</a></code>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Config.html" target="_self" >ConfigAction.All</a></code>
 </code>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/effects/category.effect.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Category.html" target="_self" >CategoryAction.All</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/effects/config.effect.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Config.html" target="_self" >ConfigAction.All</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/reducers/category.reducer.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Category.html" target="_self" >CategoryAction.All</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/effects/syslog.effect.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/SysLog.html" target="_self" >SysLogAction.All</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/effects/user.effects.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Action"></a>
+                    <span class="name"><b>Action</b><a href="#Action"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/User.html" target="_self" >UserAction.All</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/actions/category.action.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="All"></a>
+                    <span class="name"><b>All</b><a href="#All"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Fetch | FetchSuccess | FetchFailed</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/actions/user.actions.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="All"></a>
+                    <span class="name"><b>All</b><a href="#All"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Login | LoginSuccess | LoginFailed | LoginG | LoginGSuccess | LoginGFailed | UpdateInfo | GetInfo | GetInfoSuccess | GetInfoFailed | EditInfo | EditInfoSuccess | EditInfoFailed | SignIn | SignInSuccess | SignInFailed | SignOut | ForgotPassword | ForgotPasswordSentSuccess | ForgotPasswordSentFailed | InitInfo | UpdateCredit | UpdateCreditSuccess | UpdateCreditFailed | PayCredits | PayCreditsSuccess | UpdateLog | UpdateLogSuccess | UpdateLogFailed</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/actions/syslog.actions.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="All"></a>
+                    <span class="name"><b>All</b><a href="#All"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Write | WriteSuccess | WriteFailed</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/actions/question.action.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="All"></a>
+                    <span class="name"><b>All</b><a href="#All"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Fetch | FetchSuccess</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/actions/history.action.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="All"></a>
+                    <span class="name"><b>All</b><a href="#All"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Fetch | FetchSuccess | FetchGeneratedLog | FetchGeneratedLogSuccess | UpdateGeneratedLog | UpdateGeneratedLogSuccess</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/app/states/actions/config.action.ts</h3>
+    <section>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="All"></a>
+                    <span class="name"><b>All</b><a href="#All"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Fetch | FetchSuccess | FetchFailed</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
 
                    </div><div class="search-results">

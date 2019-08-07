@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>IT Passport Documentation</title>
+        <title>itpassport documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">IT Passport Documentation</a>
+            <a href="../" class="navbar-brand">itpassport documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -71,7 +70,7 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
 
@@ -162,6 +161,9 @@
                                 <a href="#openEditProfile">openEditProfile</a>
                             </li>
                             <li>
+                                <a href="#showAds">showAds</a>
+                            </li>
+                            <li>
                                 <a href="#signOut">signOut</a>
                             </li>
                         </ul>
@@ -182,12 +184,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(afAuth: AngularFireAuth, modalController: ModalController, db: AngularFireDatabase, dataService: <a href="../injectables/DataService.html">DataService</a>, store: <a href="../interfaces/IAppState.html">Store<IAppState></a>)</code>
+<code>constructor(afAuth: AngularFireAuth, modalController: ModalController, db: AngularFireDatabase, platform: Platform, userService: <a href="../injectables/UserService.html">UserService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, storage: Storage, dataService: <a href="../injectables/DataService.html">DataService</a>, store: <a href="../interfaces/IAppState.html">Store<IAppState></a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/account/account.page.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/account/account.page.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -241,10 +243,58 @@
                                                     
                                                 </tr>
                                                 <tr>
+                                                        <td>platform</td>
+                                                  
+                                                        <td>
+                                                                    <code>Platform</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>storage</td>
+                                                  
+                                                        <td>
+                                                                    <code>Storage</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
                                                         <td>dataService</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
+                                                                        <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -256,7 +306,7 @@
                                                         <td>store</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../interfaces/IAppState.html" target="_self" >Store&lt;IAppState&gt;</a></code>
+                                                                        <code><a href="../interfaces/IAppState.html" target="_self" >Store&lt;IAppState&gt;</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -279,127 +329,174 @@
 
     <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="ngOnInit"></a>
-                        <span class="name">
-                            <b>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
                             ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>ngOnInit()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/account/account.page.ts:35</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/account/account.page.ts:49</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="openEditProfile"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Async</span>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openEditProfile"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Async</span>
                             openEditProfile
-                            </b>
-                            <a href="#openEditProfile"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>openEditProfile()</code>
-                    </td>
-                </tr>
+                        </b>
+                        <a href="#openEditProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openEditProfile()</code>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/account/account.page.ts:38</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/account/account.page.ts:57</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mở profile của user</p>
+</div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>{}</code>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>{}</code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="signOut"></a>
-                        <span class="name">
-                            <b>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showAds"></a>
+                    <span class="name">
+                        <b>
+                            showAds
+                        </b>
+                        <a href="#showAds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>showAds()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/app/account/account.page.ts:78</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Điều hướng đến trang quảng cáo nếu banner không load được</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signOut"></a>
+                    <span class="name">
+                        <b>
                             signOut
-                            </b>
-                            <a href="#signOut"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#signOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>signOut()</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/account/account.page.ts:44</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/account/account.page.ts:66</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Đăng xuất</p>
+</div>
 
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
     <section>
     
         <h3 id="inputs">
@@ -412,21 +509,14 @@
                         <a name="displayName"></a>
                         <span class="name">
                             <b>
-                            displayName
-                            </b>
+                            displayName</b>
                             <a href="#displayName"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>displayName:     <code></code>
-</code>
-                    </td>
-                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/account/account.page.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/account/account.page.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -440,21 +530,14 @@
                         <a name="email"></a>
                         <span class="name">
                             <b>
-                            email
-                            </b>
+                            email</b>
                             <a href="#email"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>email:     <code></code>
-</code>
-                    </td>
-                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/account/account.page.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/account/account.page.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -468,21 +551,14 @@
                         <a name="phone"></a>
                         <span class="name">
                             <b>
-                            phone
-                            </b>
+                            phone</b>
                             <a href="#phone"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>phone:     <code></code>
-</code>
-                    </td>
-                </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/account/account.page.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/account/account.page.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -496,27 +572,20 @@
                         <a name="user"></a>
                         <span class="name">
                             <b>
-                            user
-                            </b>
+                            user</b>
                             <a href="#user"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>user:     <code><a href="../interfaces/User.html" target="_self" >Observable&lt;User&gt;</a></code>
-</code>
-                    </td>
-                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/User.html" target="_self" >Observable&lt;User&gt;</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >Observable&lt;User&gt;</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/account/account.page.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/account/account.page.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -531,16 +600,20 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { AngularFireAuth } from &#x27;@angular/fire/auth&#x27;;
-import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { ModalController, Platform } from &#x27;@ionic/angular&#x27;;
 import { EditProfileModalPage } from &#x27;../edit-profile-modal/edit-profile-modal.page&#x27;;
 import { AngularFireDatabase } from &#x27;@angular/fire/database&#x27;;
 import { DataService } from &#x27;../data.service&#x27;;
-import { map } from &#x27;rxjs/operators&#x27;;
 import { Store } from &#x27;@ngrx/store&#x27;;
 import IAppState from &#x27;../IAppState&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { User } from &#x27;../states/models/user.model&#x27;;
 import * as UserAction from &#x27;../states/actions/user.actions&#x27;;
+import { UserService } from &#x27;../services/user.service&#x27;;
+
+import { CategoryService } from &#x27;../services/category.service&#x27;;
+import { Storage } from &#x27;@ionic/storage&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 
 @Component({
   selector: &#x27;app-account&#x27;,
@@ -549,34 +622,63 @@ import * as UserAction from &#x27;../states/actions/user.actions&#x27;;
 })
 export class AccountPage implements OnInit {
 
+
+
   constructor(private afAuth: AngularFireAuth,
     private modalController: ModalController,
     private db: AngularFireDatabase,
+    private platform: Platform,
+    private userService: UserService,
+    private router: Router,
+    private storage: Storage,
     private dataService: DataService, private store: Store&lt;IAppState&gt;) {
-    this.user &#x3D; this.store.select(&#x27;user&#x27;);
-    this.store.dispatch(new UserAction.GetInfo());
+
+
   }
+
+
 
   email;
   displayName;
   phone;
 
+
+
   user: Observable&lt;User&gt;;
 
   ngOnInit() {
+    this.user &#x3D; this.store.select(&#x27;user&#x27;);
+    //this.store.dispatch(new UserAction.GetInfo({ email: this.afAuth.auth.currentUser.email, annonymous: this.dataService.config[&#x27;annonymous_mode&#x27;] }));
   }
 
+  /**
+   * Mở profile của user
+   */
   async openEditProfile() {
     console.log(&quot;Open modal&quot;);
     const modal &#x3D; await this.modalController.create({ component: EditProfileModalPage });
     return await modal.present();
   }
 
+  /**
+   * Đăng xuất
+   */
   signOut() {
     console.log(&quot;sign out&quot;);
+    this.storage.set(&quot;auto_login&quot;, false);
+    this.storage.set(&quot;login_email&quot;, &quot;&quot;);
+    this.storage.set(&quot;login_password&quot;, &quot;&quot;);
     this.afAuth.auth.signOut();
-
+    this.store.dispatch(new UserAction.SignOut());
   }
+
+  /**
+   * Điều hướng đến trang quảng cáo nếu banner không load được
+   */
+  showAds() {
+    this.router.navigate([&quot;ad-page/&quot;]);
+  }
+
 
 }
 </code></pre>
@@ -614,9 +716,9 @@ export class AccountPage implements OnInit {
       &lt;ion-label&gt;Your credit(s)&lt;/ion-label&gt;
 
     &lt;/ion-item&gt;
-    &lt;ion-card-content&gt;
-      &lt;ion-text&gt;You have xxx credit(s)&lt;/ion-text&gt;&lt;br /&gt;
-      &lt;ion-button color&#x3D;&quot;warning&quot;&gt;Watch video reward&lt;/ion-button&gt;
+    &lt;ion-card-content *ngIf&#x3D;&quot;user| async as u&quot;&gt;
+      &lt;ion-text *ngIf&#x3D;&quot;u.data !&#x3D;&#x3D;undefined&quot;&gt;You have {{u.data[&#x27;credits&#x27;]}} credit(s)&lt;/ion-text&gt;&lt;br /&gt;
+      &lt;ion-button *ngIf&#x3D;&quot;false&quot; color&#x3D;&quot;warning&quot; (click)&#x3D;&quot;showAds()&quot;&gt;Watch video reward&lt;/ion-button&gt;
     &lt;/ion-card-content&gt;
   &lt;/ion-card&gt;
 &lt;/ion-content&gt;</code></pre>
@@ -654,8 +756,8 @@ export class AccountPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary">    <ion-buttons slot="secondary">      <ion-button (click)="signOut()" [routerLink]="\'/\'">        <ion-icon name="log-out"></ion-icon>      </ion-button>    </ion-buttons>    <ion-title>Account</ion-title>  </ion-toolbar></ion-header><ion-content padding>  <ion-card>    <ion-item>      <ion-icon name="contact" slot="start"></ion-icon>      <ion-label>Your information</ion-label>      <ion-button fill="outline" slot="end" (click)="openEditProfile()">Edit</ion-button>    </ion-item>    <ion-card-content *ngIf="user| async as u">      <ion-text>Email: {{u.currentUser.email}}</ion-text><br />      <ion-text>Name: {{u.currentUser.displayName}}</ion-text><br />      <ion-text>Phone: {{u.currentUser.phoneNumber}}</ion-text><br />    </ion-card-content>  </ion-card>  <ion-card>    <ion-item>      <ion-icon name="cash" slot="start"></ion-icon>      <ion-label>Your credit(s)</ion-label>    </ion-item>    <ion-card-content>      <ion-text>You have xxx credit(s)</ion-text><br />      <ion-button color="warning">Watch video reward</ion-button>    </ion-card-content>  </ion-card></ion-content></div>'
-    var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BeforeStartPage', 'selector': 'app-before-start'},{'name': 'EditProfileModalPage', 'selector': 'app-edit-profile-modal'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'SignUpPage', 'selector': 'app-sign-up'},{'name': 'Tab1Page', 'selector': 'app-tab1'},{'name': 'Tab2Page', 'selector': 'app-tab2'},{'name': 'Tab3Page', 'selector': 'app-tab3'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TestResultPage', 'selector': 'app-test-result'},{'name': 'TestRoomPage', 'selector': 'app-test-room'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary">    <ion-buttons slot="secondary">      <ion-button (click)="signOut()" [routerLink]="\'/\'">        <ion-icon name="log-out"></ion-icon>      </ion-button>    </ion-buttons>    <ion-title>Account</ion-title>  </ion-toolbar></ion-header><ion-content padding>  <ion-card>    <ion-item>      <ion-icon name="contact" slot="start"></ion-icon>      <ion-label>Your information</ion-label>      <ion-button fill="outline" slot="end" (click)="openEditProfile()">Edit</ion-button>    </ion-item>    <ion-card-content *ngIf="user| async as u">      <ion-text>Email: {{u.currentUser.email}}</ion-text><br />      <ion-text>Name: {{u.currentUser.displayName}}</ion-text><br />      <ion-text>Phone: {{u.currentUser.phoneNumber}}</ion-text><br />    </ion-card-content>  </ion-card>  <ion-card>    <ion-item>      <ion-icon name="cash" slot="start"></ion-icon>      <ion-label>Your credit(s)</ion-label>    </ion-item>    <ion-card-content *ngIf="user| async as u">      <ion-text *ngIf="u.data !==undefined">You have {{u.data[\'credits\']}} credit(s)</ion-text><br />      <ion-button *ngIf="false" color="warning" (click)="showAds()">Watch video reward</ion-button>    </ion-card-content>  </ion-card></ion-content></div>'
+    var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AdPagePage', 'selector': 'app-ad-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BeforeStartPage', 'selector': 'app-before-start'},{'name': 'CatInfoModalPage', 'selector': 'app-cat-info-modal'},{'name': 'ChallengePage', 'selector': 'app-challenge'},{'name': 'EditProfileModalPage', 'selector': 'app-edit-profile-modal'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'SignUpPage', 'selector': 'app-sign-up'},{'name': 'Tab1Page', 'selector': 'app-tab1'},{'name': 'Tab2Page', 'selector': 'app-tab2'},{'name': 'Tab3Page', 'selector': 'app-tab3'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TestResultPage', 'selector': 'app-test-result'},{'name': 'TestRoomPage', 'selector': 'app-test-room'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AccountPage'};
 </script>
@@ -670,6 +772,7 @@ export class AccountPage implements OnInit {
 
 
 
+                   
 
 
 

@@ -62,6 +62,9 @@ export class AdPagePage implements OnInit {
 
   }
 
+  /**
+   * Nhận thưởng sau khi quảng cáo chạy xong
+   */
   giveReward() {
     this.userService.addCredits(50, this.userService.ADD_MORE_CREDITS);
     this.caption = "You have been gotten some credits";

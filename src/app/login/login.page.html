@@ -49,6 +49,18 @@
         <ion-row>
           <ion-col>
             <div>
+              <ion-button color="light" style="margin-top:10px; width: 100%;" (click)="loginWithGoogle()"
+                *ngIf="!isObsoleted()">
+                <img style="width: 20px;"
+                  src="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png" />
+                Login with Google
+              </ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div>
               <ion-button color="light" style="margin-top:10px; width: 100%;" (click)="forgotPassword()"
                 *ngIf="!isObsoleted()">
                 I forgot my password

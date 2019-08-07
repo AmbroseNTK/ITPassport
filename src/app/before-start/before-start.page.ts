@@ -15,11 +15,17 @@ export class BeforeStartPage implements OnInit {
     this.isEnoughCredit = this.userService.isEnoughCredit();
   }
 
+  /**
+   * Kiểm tra khi có đủ credit
+   */
   isEnoughCredit = false;
 
   ngOnInit() {
   }
 
+  /**
+   * Bắt đầu bài kiểm tra
+   */
   start() {
     if (this.userService.isEnoughCredit()) {
 
@@ -36,6 +42,9 @@ export class BeforeStartPage implements OnInit {
     }
   }
 
+  /**
+   * Quay về trang tài khoản
+   */
   goBack() {
     this.router.navigate(['/main/account']);
   }

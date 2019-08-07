@@ -1,10 +1,12 @@
 
 import { Action } from '@ngrx/store';
-import { c } from 'tar';
 
 export const LOGIN = '[User] Login';
 export const LOGIN_SUCCESS = '[User] Login -> Success';
 export const LOGIN_FAILED = '[User] Login -> Failed';
+export const LOGIN_G = '[User] Login Google';
+export const LOGIN_G_SUCCESS = '[User] Login Google -> Success';
+export const LOGIN_G_FAILED = '[User] Login Google -> Failed';
 export const SIGNIN = '[User] SignIn';
 export const SIGNIN_SUCCESS = '[User] Sign in -> Success';
 export const SIGNIN_FAILED = '[User] Sign in -> Failed';
@@ -45,6 +47,20 @@ export class LoginSuccess implements Action {
 export class LoginFailed implements Action {
     readonly type = LOGIN_FAILED;
     constructor(public payload: { message: string }) { }
+}
+
+export class LoginG implements Action {
+    readonly type = LOGIN_G;
+    constructor() { }
+}
+
+export class LoginGSuccess implements Action {
+    readonly type = LOGIN_G_SUCCESS;
+    constructor(public payload: { currentUser: any }) { }
+}
+
+export class LoginGFailed implements Action {
+    readonly type = LOGIN_G_FAILED;
 }
 
 export class SignOut implements Action {
@@ -167,6 +183,9 @@ export type All
     = Login
     | LoginSuccess
     | LoginFailed
+    | LoginG
+    | LoginGSuccess
+    | LoginGFailed
     | UpdateInfo
     | GetInfo
     | GetInfoSuccess

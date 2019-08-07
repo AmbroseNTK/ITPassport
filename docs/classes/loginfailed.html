@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>IT Passport Documentation</title>
+        <title>itpassport documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">IT Passport Documentation</a>
+            <a href="../" class="navbar-brand">itpassport documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -70,7 +69,7 @@
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                        <code><a href="../miscellaneous/typealiases.html#Action" target="_self" >Action</a></code>
+                            <code><a href="../miscellaneous/typealiases.html#Action" target="_self" >Action</a></code>
             </p>
 
 
@@ -118,7 +117,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/states/actions/user.actions.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/states/actions/user.actions.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -169,16 +168,9 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            payload
-                            </b>
+                            payload</b>
                             <a href="#payload"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>payload:     <code>literal type</code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -189,7 +181,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/states/actions/user.actions.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/states/actions/user.actions.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -204,16 +196,9 @@
                         <span class="name">
                             <b>
                                 <span class="modifier">Readonly</span>
-                            type
-                            </b>
+                            type</b>
                             <a href="#type"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>type:     <code></code>
-</code>
                     </td>
                 </tr>
                     <tr>
@@ -223,7 +208,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/states/actions/user.actions.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/states/actions/user.actions.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -247,18 +232,35 @@
 export const LOGIN &#x3D; &#x27;[User] Login&#x27;;
 export const LOGIN_SUCCESS &#x3D; &#x27;[User] Login -&gt; Success&#x27;;
 export const LOGIN_FAILED &#x3D; &#x27;[User] Login -&gt; Failed&#x27;;
+export const LOGIN_G &#x3D; &#x27;[User] Login Google&#x27;;
+export const LOGIN_G_SUCCESS &#x3D; &#x27;[User] Login Google -&gt; Success&#x27;;
+export const LOGIN_G_FAILED &#x3D; &#x27;[User] Login Google -&gt; Failed&#x27;;
 export const SIGNIN &#x3D; &#x27;[User] SignIn&#x27;;
-export const SIGNIN_SUCCESS &#x3D; &#x27;[User] SignIn -&gt; Success&#x27;;
-export const SIGNIN_FAILED &#x3D; &#x27;[User] SignIn -&gt; Failed&#x27;;
-export const SIGNOUT &#x3D; &#x27;[User] SignOut&#x27;;
-export const UPDATEINFO &#x3D; &#x27;[User] UpdateInfo&#x27;;
-export const GETINFO &#x3D; &#x27;[User] GetInfo&#x27;;
+export const SIGNIN_SUCCESS &#x3D; &#x27;[User] Sign in -&gt; Success&#x27;;
+export const SIGNIN_FAILED &#x3D; &#x27;[User] Sign in -&gt; Failed&#x27;;
+export const SIGNOUT &#x3D; &#x27;[User] Sign out&#x27;;
+export const UPDATEINFO &#x3D; &#x27;[User] Update info&#x27;;
+export const GETINFO &#x3D; &#x27;[User] Get info&#x27;;
+export const GETINFO_SUCCESS &#x3D; &#x27;[User] Get info -&gt; Success&#x27;;
+export const GETINFO_FAILED &#x3D; &#x27;[User] Get info -&gt; Failed&#x27;;
 export const EDITINFO &#x3D; &#x27;[User] EditInfo&#x27;;
 export const EDITINFO_SUCCESS &#x3D; &#x27;[User] EditInfo -&gt; Success&#x27;;
 export const EDITINFO_FAILED &#x3D; &#x27;[User] EditInfo -&gt; Failed&#x27;;
 export const FORGOT_PASSWORD &#x3D; &#x27;[User] Forgot password&#x27;;
 export const FORGOT_PASSWORD_SENT_SUCCESS &#x3D; &#x27;[User] Forgot password -&gt; Sent Success&#x27;;
 export const FORGOT_PASSWORD_SENT_FAILED &#x3D; &#x27;[User] Forgot password -&gt; Sent Failed&#x27;;
+export const INIT_INFO &#x3D; &#x27;[User] Init information&#x27;;
+export const UPDATE_CREDIT &#x3D; &#x27;[User] Update credit&#x27;;
+export const UPDATE_CREDIT_SUCCESS &#x3D; &quot;[User] Update credit -&gt; Success&quot;;
+export const UPDATE_CREDIT_FAILED &#x3D; &quot;[User] Update credit -&gt; Failed&quot;;
+export const PAY_CREDITS &#x3D; &#x27;[User] Pay credits&#x27;;
+export const PAY_CREDITS_SUCCESS &#x3D; &#x27;[User] Pay credits -&gt; Success&#x27;;
+export const REMOVE_CREDITS &#x3D; &#x27;[User] Remove credits&#x27;;
+export const NO_MORE_CREDITS &#x3D; &#x27;[User] No more credits&#x27;;
+export const UPDATE_LOG &#x3D; &quot;[User] Update log&quot;;
+export const UPDATE_LOG_SUCCESS &#x3D; &quot;[User] Update log -&gt; Success&quot;;
+export const UPDATE_LOG_FAILED &#x3D; &quot;[User] Update log -&gt; Failed&quot;;
+
 
 export class Login implements Action {
     readonly type &#x3D; LOGIN;
@@ -273,6 +275,25 @@ export class LoginSuccess implements Action {
 export class LoginFailed implements Action {
     readonly type &#x3D; LOGIN_FAILED;
     constructor(public payload: { message: string }) { }
+}
+
+export class LoginG implements Action {
+    readonly type &#x3D; LOGIN_G;
+    constructor() { }
+}
+
+export class LoginGSuccess implements Action {
+    readonly type &#x3D; LOGIN_G_SUCCESS;
+    constructor(public payload: { currentUser: any }) { }
+}
+
+export class LoginGFailed implements Action {
+    readonly type &#x3D; LOGIN_G_FAILED;
+}
+
+export class SignOut implements Action {
+    readonly type &#x3D; SIGNOUT;
+    constructor() { }
 }
 
 export class SignIn implements Action {
@@ -297,6 +318,16 @@ export class UpdateInfo implements Action {
 
 export class GetInfo implements Action {
     readonly type &#x3D; GETINFO;
+    constructor(public payload: { email: string, annonymous: boolean }) { }
+}
+
+export class GetInfoSuccess implements Action {
+    readonly type &#x3D; GETINFO_SUCCESS;
+    constructor(public payload: { data: any }) { }
+}
+
+export class GetInfoFailed implements Action {
+    readonly type &#x3D; GETINFO_FAILED;
     constructor() { }
 }
 
@@ -330,26 +361,88 @@ export class ForgotPasswordSentFailed implements Action {
     constructor() { }
 }
 
+export class InitInfo implements Action {
+    readonly type &#x3D; INIT_INFO;
+    constructor(public payload: { userEmail: string }) { }
+}
+
+export class UpdateCredit implements Action {
+    readonly type &#x3D; UPDATE_CREDIT;
+    constructor(public payload: { data: any, email: string, amount: number }) { }
+}
+
+export class UpdateCreditSuccess implements Action {
+    readonly type &#x3D; UPDATE_CREDIT_SUCCESS;
+    constructor() { }
+}
+
+export class UpdateCreditFailed implements Action {
+    readonly type &#x3D; UPDATE_CREDIT_FAILED;
+    constructor() { }
+}
+
+export class PayCredits implements Action {
+    readonly type &#x3D; PAY_CREDITS;
+    constructor(public payload: { data: any, email: string, amount: number }) { }
+}
+
+export class PayCreditsSuccess implements Action {
+    readonly type &#x3D; PAY_CREDITS_SUCCESS;
+    constructor() { }
+}
+
+export class UpdateLog implements Action {
+    readonly type &#x3D; UPDATE_LOG;
+    constructor(public payload: { data: any, timestamp: any, log: any }) { }
+}
+
+export class UpdateLogSuccess implements Action {
+    readonly type &#x3D; UPDATE_LOG_SUCCESS;
+    constructor() { }
+}
+
+export class UpdateLogFailed implements Action {
+    readonly type &#x3D; UPDATE_LOG_FAILED;
+    constructor() { }
+}
+
+
 export type All
     &#x3D; Login
     | LoginSuccess
     | LoginFailed
+    | LoginG
+    | LoginGSuccess
+    | LoginGFailed
     | UpdateInfo
     | GetInfo
+    | GetInfoSuccess
+    | GetInfoFailed
     | EditInfo
     | EditInfoSuccess
     | EditInfoFailed
     | SignIn
     | SignInSuccess
     | SignInFailed
+    | SignOut
     | ForgotPassword
     | ForgotPasswordSentSuccess
-    | ForgotPasswordSentFailed;</code></pre>
+    | ForgotPasswordSentFailed
+    | InitInfo
+    | UpdateCredit
+    | UpdateCreditSuccess
+    | UpdateCreditFailed
+    | PayCredits
+    | PayCreditsSuccess
+    | UpdateLog
+    | UpdateLogSuccess
+    | UpdateLogFailed;</code></pre>
     </div>
 </div>
 
 
 
+                   
 
 
 

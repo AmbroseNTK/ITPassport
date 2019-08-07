@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>IT Passport Documentation</title>
+        <title>itpassport documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">IT Passport Documentation</a>
+            <a href="../" class="navbar-brand">itpassport documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -109,6 +108,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#showSplash">showSplash</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -139,12 +152,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(platform: Platform, splashScreen: SplashScreen, statusBar: StatusBar)</code>
+<code>constructor(platform: Platform, splashScreen: SplashScreen, statusBar: StatusBar, dataService: <a href="../injectables/DataService.html">DataService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -197,6 +210,18 @@
                                                     </td>
                                                     
                                                 </tr>
+                                                <tr>
+                                                        <td>dataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -212,49 +237,81 @@
 
     <section>
     
-        <h3 id="methods">
-            Methods
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeApp"></a>
+                    <span class="name">
+                        <b>
+                            initializeApp
+                        </b>
+                        <a href="#initializeApp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeApp()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/app.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
         </h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="initializeApp"></a>
+                        <a name="showSplash"></a>
                         <span class="name">
                             <b>
-                            initializeApp
-                            </b>
-                            <a href="#initializeApp"><span class="icon ion-ios-link"></span></a>
+                            showSplash</b>
+                            <a href="#showSplash"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>initializeApp()</code>
-                    </td>
-                </tr>
-
-
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>true</code>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/app.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/app.component.ts:24</a></div>
                             </td>
                         </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
-
 
 </div>
 
@@ -266,6 +323,9 @@ import { Platform } from &#x27;@ionic/angular&#x27;;
 import { SplashScreen } from &#x27;@ionic-native/splash-screen/ngx&#x27;;
 import { StatusBar } from &#x27;@ionic-native/status-bar/ngx&#x27;;
 
+import { timer } from &#x27;rxjs/observable/timer&#x27;;
+import { DataService } from &#x27;./data.service&#x27;;
+
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;app.component.html&#x27;
@@ -274,15 +334,19 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private dataService: DataService
   ) {
     this.initializeApp();
   }
+
+  showSplash &#x3D; true;
 
   initializeApp() {
     this.platform.ready().then(() &#x3D;&gt; {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      timer(3000).subscribe(() &#x3D;&gt; this.showSplash &#x3D; false) // &lt;-- hide animation after 3s
     });
   }
 }
@@ -291,6 +355,19 @@ export class AppComponent {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-app&gt;
+  &lt;div *ngIf&#x3D;&quot;showSplash&quot; class&#x3D;&quot;splash&quot;&gt;
+    &lt;div class&#x3D;&quot;sk-cube-grid&quot;&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube1&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube2&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube3&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube4&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube5&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube6&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube7&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube8&quot;&gt;&lt;/div&gt;
+      &lt;div class&#x3D;&quot;sk-cube sk-cube9&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
   &lt;ion-router-outlet [swipeGesture]&#x3D;&quot;false&quot;&gt;&lt;/ion-router-outlet&gt;
 &lt;/ion-app&gt;</code></pre>
     </div>
@@ -321,8 +398,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-app>  <ion-router-outlet [swipeGesture]="false"></ion-router-outlet></ion-app></div>'
-    var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BeforeStartPage', 'selector': 'app-before-start'},{'name': 'EditProfileModalPage', 'selector': 'app-edit-profile-modal'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'SignUpPage', 'selector': 'app-sign-up'},{'name': 'Tab1Page', 'selector': 'app-tab1'},{'name': 'Tab2Page', 'selector': 'app-tab2'},{'name': 'Tab3Page', 'selector': 'app-tab3'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TestResultPage', 'selector': 'app-test-result'},{'name': 'TestRoomPage', 'selector': 'app-test-room'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'}];
+        var COMPONENT_TEMPLATE = '<div><ion-app>  <div *ngIf="showSplash" class="splash">    <div class="sk-cube-grid">      <div class="sk-cube sk-cube1"></div>      <div class="sk-cube sk-cube2"></div>      <div class="sk-cube sk-cube3"></div>      <div class="sk-cube sk-cube4"></div>      <div class="sk-cube sk-cube5"></div>      <div class="sk-cube sk-cube6"></div>      <div class="sk-cube sk-cube7"></div>      <div class="sk-cube sk-cube8"></div>      <div class="sk-cube sk-cube9"></div>    </div>  </div>  <ion-router-outlet [swipeGesture]="false"></ion-router-outlet></ion-app></div>'
+    var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AdPagePage', 'selector': 'app-ad-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BeforeStartPage', 'selector': 'app-before-start'},{'name': 'CatInfoModalPage', 'selector': 'app-cat-info-modal'},{'name': 'ChallengePage', 'selector': 'app-challenge'},{'name': 'EditProfileModalPage', 'selector': 'app-edit-profile-modal'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'SignUpPage', 'selector': 'app-sign-up'},{'name': 'Tab1Page', 'selector': 'app-tab1'},{'name': 'Tab2Page', 'selector': 'app-tab2'},{'name': 'Tab3Page', 'selector': 'app-tab3'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TestResultPage', 'selector': 'app-test-result'},{'name': 'TestRoomPage', 'selector': 'app-test-room'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>
@@ -337,6 +414,7 @@ export class AppComponent {
 
 
 
+                   
 
 
 

@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>IT Passport Documentation</title>
+        <title>itpassport documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">IT Passport Documentation</a>
+            <a href="../" class="navbar-brand">itpassport documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -82,6 +81,15 @@ const routes: Routes &#x3D; [
     component: TabsPage,
     children: [
       {
+        path: &#x27;welcome&#x27;,
+        children: [
+          {
+            path: &#x27;&#x27;,
+            loadChildren: &#x27;../welcome/welcome.module#WelcomePageModule&#x27;
+          }
+        ]
+      },
+      {
         path: &#x27;account&#x27;,
         children: [
           {
@@ -100,11 +108,11 @@ const routes: Routes &#x3D; [
         ]
       },
       {
-        path: &#x27;tab2&#x27;,
+        path: &#x27;challenge&#x27;,
         children: [
           {
             path: &#x27;&#x27;,
-            loadChildren: &#x27;../tab2/tab2.module#Tab2PageModule&#x27;
+            loadChildren: &#x27;../challenge/challenge.module#ChallengePageModule&#x27;
           }
         ]
       },
@@ -149,6 +157,7 @@ export class TabsPageRoutingModule { }
 
 
 
+                   
 
 
 

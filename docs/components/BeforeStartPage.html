@@ -3,18 +3,17 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>IT Passport Documentation</title>
+        <title>itpassport documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/material.css">
     </head>
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">IT Passport Documentation</a>
+            <a href="../" class="navbar-brand">itpassport documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -71,7 +70,7 @@
         <h3>Implements</h3>
     </p>
     <p class="comment">
-                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
     </p>
 
 
@@ -122,6 +121,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isEnoughCredit">isEnoughCredit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -131,6 +144,9 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#goBack">goBack</a>
+                            </li>
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
@@ -155,12 +171,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(dataService: <a href="../injectables/DataService.html">DataService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(dataService: <a href="../injectables/DataService.html">DataService</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, userService: <a href="../injectables/UserService.html">UserService</a>, timeService: <a href="../injectables/TimeService.html">TimeService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/before-start/before-start.page.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/before-start/before-start.page.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -181,7 +197,7 @@
                                                         <td>dataService</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
+                                                                        <code><a href="../injectables/DataService.html" target="_self" >DataService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -193,7 +209,31 @@
                                                         <td>router</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>timeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TimeService.html" target="_self" >TimeService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -216,87 +256,169 @@
 
     <section>
     
-        <h3 id="methods">
-            Methods
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <b>
+                            goBack
+                        </b>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/before-start/before-start.page.ts:48</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Quay về trang tài khoản</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <b>
+                            ngOnInit
+                        </b>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/before-start/before-start.page.ts:23</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="start"></a>
+                    <span class="name">
+                        <b>
+                            start
+                        </b>
+                        <a href="#start"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>start()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/before-start/before-start.page.ts:29</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Bắt đầu bài kiểm tra</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
         </h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="ngOnInit"></a>
+                        <a name="isEnoughCredit"></a>
                         <span class="name">
                             <b>
-                            ngOnInit
-                            </b>
-                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                            isEnoughCredit</b>
+                            <a href="#isEnoughCredit"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>ngOnInit()</code>
-                    </td>
-                </tr>
-
-
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/before-start/before-start.page.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/before-start/before-start.page.ts:21</a></div>
                             </td>
                         </tr>
 
-
                 <tr>
                     <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="start"></a>
-                        <span class="name">
-                            <b>
-                            start
-                            </b>
-                            <a href="#start"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-<code>start()</code>
+                        <div class="io-description"><p>Kiểm tra khi có đủ credit</p>
+</div>
                     </td>
                 </tr>
 
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/before-start/before-start.page.ts:17</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
-
 
 </div>
 
@@ -305,6 +427,8 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { DataService } from &#x27;../data.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
+import { UserService } from &#x27;../services/user.service&#x27;;
+import { TimeService } from &#x27;../services/time.service&#x27;;
 
 @Component({
   selector: &#x27;app-before-start&#x27;,
@@ -313,20 +437,45 @@ import { Router } from &#x27;@angular/router&#x27;;
 })
 export class BeforeStartPage implements OnInit {
 
-  constructor(private dataService: DataService, private router: Router) { }
+  constructor(private dataService: DataService, private router: Router, private userService: UserService, private timeService: TimeService) {
+    this.isEnoughCredit &#x3D; this.userService.isEnoughCredit();
+  }
+
+  /**
+   * Kiểm tra khi có đủ credit
+   */
+  isEnoughCredit &#x3D; false;
 
   ngOnInit() {
   }
 
+  /**
+   * Bắt đầu bài kiểm tra
+   */
   start() {
-    this.dataService.navState[&#x27;canEnterBeforeStart&#x27;] &#x3D; false;
-    this.dataService.navState[&#x27;testing&#x27;] &#x3D; true;
-    this.dataService.navState[&#x27;testFinish&#x27;] &#x3D; false;
-    this.router.navigate([&#x27;/test-room&#x27;]);
+    if (this.userService.isEnoughCredit()) {
+
+      this.userService.addCredits(-this.dataService.config[&#x27;price&#x27;], this.userService.PAY_FOR_QUESTION);
+      this.dataService.navState[&#x27;canEnterBeforeStart&#x27;] &#x3D; false;
+      this.dataService.navState[&#x27;testing&#x27;] &#x3D; true;
+      this.dataService.navState[&#x27;testFinish&#x27;] &#x3D; false;
+      this.timeService.resetTimer();
+      this.timeService.startTimer();
+
+    }
+    else {
+
+    }
   }
 
-}
-</code></pre>
+  /**
+   * Quay về trang tài khoản
+   */
+  goBack() {
+    this.router.navigate([&#x27;/main/account&#x27;]);
+  }
+
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
@@ -354,11 +503,11 @@ export class BeforeStartPage implements OnInit {
         &lt;ion-grid&gt;
           &lt;ion-row&gt;
             &lt;ion-col&gt;
-              &lt;ion-button fill&#x3D;&quot;outline&quot; shape&#x3D;&quot;round&quot; style&#x3D;&quot;width: 100%&quot; [routerLink]&#x3D;&quot;&#x27;/main&#x27;&quot;&gt;
+              &lt;ion-button fill&#x3D;&quot;outline&quot; shape&#x3D;&quot;round&quot; style&#x3D;&quot;width: 100%&quot; (click)&#x3D;&quot;goBack()&quot;&gt;
                 Back
               &lt;/ion-button&gt;
             &lt;/ion-col&gt;
-            &lt;ion-col&gt;
+            &lt;ion-col *ngIf&#x3D;&quot;isEnoughCredit&quot;&gt;
               &lt;ion-button fill&#x3D;&quot;outline&quot; shape&#x3D;&quot;round&quot; style&#x3D;&quot;width: 100%&quot; (click)&#x3D;&quot;start()&quot;&gt;
                 Start
               &lt;/ion-button&gt;
@@ -404,8 +553,8 @@ export class BeforeStartPage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary">    <ion-title>Before Start</ion-title>  </ion-toolbar></ion-header><ion-content padding color="primary">  <ion-card color="light">    <ion-card-header>      <ion-card-title>Are you ready?</ion-card-title>    </ion-card-header>    <ion-card-content>      <ion-item>        <ion-icon name="clock" style="margin-right:10px;"></ion-icon>        <ion-label>Time: Infinity</ion-label>      </ion-item>      <ion-item>        <ion-icon name="card" style="margin-right:10px;"></ion-icon>        <ion-label>Quiz size: 10</ion-label>      </ion-item>      <ion-item>        <ion-grid>          <ion-row>            <ion-col>              <ion-button fill="outline" shape="round" style="width: 100%" [routerLink]="\'/main\'">                Back              </ion-button>            </ion-col>            <ion-col>              <ion-button fill="outline" shape="round" style="width: 100%" (click)="start()">                Start              </ion-button>            </ion-col>          </ion-row>        </ion-grid>      </ion-item>    </ion-card-content>  </ion-card></ion-content></div>'
-    var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BeforeStartPage', 'selector': 'app-before-start'},{'name': 'EditProfileModalPage', 'selector': 'app-edit-profile-modal'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'SignUpPage', 'selector': 'app-sign-up'},{'name': 'Tab1Page', 'selector': 'app-tab1'},{'name': 'Tab2Page', 'selector': 'app-tab2'},{'name': 'Tab3Page', 'selector': 'app-tab3'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TestResultPage', 'selector': 'app-test-result'},{'name': 'TestRoomPage', 'selector': 'app-test-room'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary">    <ion-title>Before Start</ion-title>  </ion-toolbar></ion-header><ion-content padding color="primary">  <ion-card color="light">    <ion-card-header>      <ion-card-title>Are you ready?</ion-card-title>    </ion-card-header>    <ion-card-content>      <ion-item>        <ion-icon name="clock" style="margin-right:10px;"></ion-icon>        <ion-label>Time: Infinity</ion-label>      </ion-item>      <ion-item>        <ion-icon name="card" style="margin-right:10px;"></ion-icon>        <ion-label>Quiz size: 10</ion-label>      </ion-item>      <ion-item>        <ion-grid>          <ion-row>            <ion-col>              <ion-button fill="outline" shape="round" style="width: 100%" (click)="goBack()">                Back              </ion-button>            </ion-col>            <ion-col *ngIf="isEnoughCredit">              <ion-button fill="outline" shape="round" style="width: 100%" (click)="start()">                Start              </ion-button>            </ion-col>          </ion-row>        </ion-grid>      </ion-item>    </ion-card-content>  </ion-card></ion-content></div>'
+    var COMPONENTS = [{'name': 'AccountPage', 'selector': 'app-account'},{'name': 'AdPagePage', 'selector': 'app-ad-page'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BeforeStartPage', 'selector': 'app-before-start'},{'name': 'CatInfoModalPage', 'selector': 'app-cat-info-modal'},{'name': 'ChallengePage', 'selector': 'app-challenge'},{'name': 'EditProfileModalPage', 'selector': 'app-edit-profile-modal'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'SignUpPage', 'selector': 'app-sign-up'},{'name': 'Tab1Page', 'selector': 'app-tab1'},{'name': 'Tab2Page', 'selector': 'app-tab2'},{'name': 'Tab3Page', 'selector': 'app-tab3'},{'name': 'TabsPage', 'selector': 'app-tabs'},{'name': 'TestResultPage', 'selector': 'app-test-result'},{'name': 'TestRoomPage', 'selector': 'app-test-room'},{'name': 'TrainingPage', 'selector': 'app-training'},{'name': 'VerifyEmailPage', 'selector': 'app-verify-email'},{'name': 'WelcomePage', 'selector': 'app-welcome'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BeforeStartPage'};
 </script>
@@ -420,6 +569,7 @@ export class BeforeStartPage implements OnInit {
 
 
 
+                   
 
 
 

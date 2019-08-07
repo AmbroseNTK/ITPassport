@@ -51,12 +51,18 @@ export class AccountPage implements OnInit {
     //this.store.dispatch(new UserAction.GetInfo({ email: this.afAuth.auth.currentUser.email, annonymous: this.dataService.config['annonymous_mode'] }));
   }
 
+  /**
+   * Mở profile của user
+   */
   async openEditProfile() {
     console.log("Open modal");
     const modal = await this.modalController.create({ component: EditProfileModalPage });
     return await modal.present();
   }
 
+  /**
+   * Đăng xuất
+   */
   signOut() {
     console.log("sign out");
     this.storage.set("auto_login", false);
@@ -66,6 +72,9 @@ export class AccountPage implements OnInit {
     this.store.dispatch(new UserAction.SignOut());
   }
 
+  /**
+   * Điều hướng đến trang quảng cáo nếu banner không load được
+   */
   showAds() {
     this.router.navigate(["ad-page/"]);
   }
